@@ -1,0 +1,45 @@
+﻿
+        /*导航*/
+        .label
+        {
+            width:100%;
+            float: left;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size: 90%;
+            padding: 0 0 10px 0;
+            background-color: #45ACE6;
+            background: #69c url(../image/bottom.gif) no-repeat bottom left;
+        }
+        .label dt
+        {
+            margin: 0;
+            padding: 10px;
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #fff;
+            border-bottom: 1px solid #fff;
+            background: #69c url(../image/top.gif) no-repeat top left;
+        }
+        .label dd
+        {
+            margin: 0;
+            padding: 5px;
+            color: #fff;
+            font-size: 1em;
+            border-bottom: 1px solid #fff;
+            background: #47a;
+        }
+        .label a:visited, .label a
+        {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            padding: 5px 5px 5px 20px;
+            background: #258 url(../image/arrow.gif) no-repeat 11px 10px;
+        }
+        .label a:hover
+        {
+            background: #258 url(../image/arrow.png) no-repeat 11px 10px;
+            color: #9cf;
+            cursor: pointer;
+        }

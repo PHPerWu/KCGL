@@ -1,0 +1,52 @@
+﻿body {
+}
+ #divXY
+        {
+            text-align: center;
+            height: 30px;
+            vertical-align: middle;
+            line-height: 30px;
+            overflow: hidden;
+            color: white;
+            font-weight: bolder;
+            background-color: #6B8E23;
+            background-repeat: repeat-x;
+        }
+        #divZY
+        {
+            text-align: center;
+            height: 25px;
+            vertical-align: middle;
+            line-height: 25px;
+            overflow: hidden;
+            color: white;
+            font-weight: bolder;
+            background-color: #6B8E23;
+            background-repeat: repeat-x;
+        }
+        #divKC
+        {
+            text-align: center;
+            height: 25px;
+            vertical-align: middle;
+            line-height: 25px;
+            overflow: hidden;
+            color: white;
+            font-weight: bolder;
+            background-color: #6B8E23;
+            background-repeat: repeat-x;
+        }
+        
+        .style1
+        {
+            width: 742px;
+        }
+   .returntop
+{
+    background:url(../images/returntop1.jpg);
+    display:none;
+    position:fixed;
+    bottom:50px;
+    right:100px;
+    cursor:pointer;
+ }

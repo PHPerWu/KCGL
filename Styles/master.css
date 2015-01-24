@@ -1,0 +1,266 @@
+﻿
+
+        body
+        {
+            margin: 0;
+            padding: 0;
+            font: 13px normal Arial, Helvetica, sans-serif;
+        }
+        
+        /*链接*/
+        a
+  {           
+     text-decoration: none;
+  
+   }
+ a:hover
+   {
+     text-decoration: underline;
+   }
+    a:visited
+   {
+    
+   }
+   
+  
+   /*主体*/
+        .container
+        {
+            width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+           position: relative; 
+        }
+        
+         /*header*/
+         
+        #header
+        {
+            background: url(../image/header_b.jpg) no-repeat center top;
+            margin-top:10px;
+            height: 106px;
+            
+        }
+         #header .disclaimer
+        {
+            color: #999;
+            padding: 10px 10px 0 0;
+            text-align: right;
+            display: block;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            bottom: 14px;
+            width: 120px;
+       }
+         #header .disclaimer a
+        {
+           font-size:large;
+           cursor:pointer;
+           color: #E5FF79;
+        }
+         #header  ul.topnav li a
+         {
+             color:#E5FF79;
+         }
+          #header  ul.topnav li a:hover
+         {
+             color:White;
+         }
+        ul.topnav
+        {
+            list-style: none;
+            padding: 0 20px;
+            margin: 0;
+            float: left;
+            width: 700px;
+            background: #222;
+            font-size: 1.5em;
+            font-weight:bolder;
+            color:#E5FF79;
+            background: url(../image/topnav_b.gif) repeat-x;
+        }
+        ul.topnav li
+        {
+            float: left;
+            margin: 0;
+            padding: 0 15px 0 0;
+            position: relative;
+            color:#E5FF79;
+        }
+        ul.topnav li a
+        {
+            padding: 10px 5px;
+            color: #fff;
+            display: block;
+            text-decoration: none;
+            float: left;
+            font-size:13px;
+        }
+        ul.topnav li a:hover
+        {
+            background: #6B8E23;
+            color:White;
+        }
+        ul.topnav li span
+        {
+            width: 17px;
+            height: 35px;
+            float: left;
+            background: url(../image/subnav_b.gif) no-repeat center top;
+        }
+        ul.topnav li span.subhover
+        {
+            background-position: center bottom;
+            cursor: pointer;
+        }
+        ul.topnav li ul.subnav
+        {
+            list-style: none;
+            position: absolute;
+            left: 0;
+            top: 35px;
+            background: #333;
+            margin: 0;
+            padding: 0;
+            display: none;
+            float: left;
+            width: 170px;
+            -moz-border-radius-bottomleft: 5px;
+            -moz-border-radius-bottomright: 5px;
+            -webkit-border-bottom-left-radius: 5px;
+            -webkit-border-bottom-right-radius: 5px;
+            border: 1px solid #111;
+        }
+        ul.topnav li ul.subnav li
+        {
+            margin: 0;
+            padding: 0;
+            border-top: 1px solid #252525;
+            border-bottom: 1px solid #444;
+            clear: both;
+            width: 170px;
+        }
+        html ul.topnav li ul.subnav li a
+        {
+            float: left;
+            width: 145px;
+            background: #333 url(../image/dropdown.gif) no-repeat 10px center;
+            padding-left: 20px;
+            font-size:13px;
+        }
+        html ul.topnav li ul.subnav li a:hover
+        {
+            background: #222 url(../image/dropdown.gif) no-repeat 10px center;
+        }
+        #header img
+        {
+            margin: 20px 0 10px;
+        }
+        
+      /* body*/
+      .body
+      {
+         
+           font-size:15px;
+           background-color:White;
+           float:left;
+            width: 1004px;
+          }
+     .bdleft
+     {
+         position:absolute;
+         left:0;
+         top:0;
+         float:left;
+         }
+         
+         /* footer*/
+         /* 去除li前面的圆点
+         #KC
+         {
+            list-style: none;
+             }*/
+    /*lable中的字体控制*/
+   .lbxy
+    {
+        
+        cursor:pointer;
+        text-align:center;
+        vertical-align:middle;
+        width:180px;
+        height:50px;
+        border-color:#999999;
+        border-width:1px;
+        background-color:#CCCCFF;
+        Font-Size:Medium;
+    }
+    
+.btnstyle
+{
+    cursor:pointer;
+}
+
+/*added by renjunwei 2013.22.29*/
+.visit
+{
+      float:left;
+      height:35px;
+      width:260px;
+      background: url(../image/topnav_b.gif) repeat-x;
+   }
+   
+   .visit span
+   {
+       float: right; 
+       margin-right:10px;
+       margin-top:5px;
+       font-family:宋体;
+       font-size:13px;
+       color:#E5FF79;
+       }
+       
+       
+   /*********用于搜索和加入收藏，设为首页*********/
+.txtSearch
+{
+     background:#ffffff url(../Images/search.jpg) no-repeat;
+     padding-left:20px;
+    }
+        
+.search
+{
+    padding-top:15px;
+    line-height:50px;
+    vertical-align:middle;
+    }     
+  .headFunc
+{
+    float:right;
+    margin:30px 20px auto auto;
+    }
+    
+    .function
+{ 
+    text-align:right;
+    line-height:14px;
+    }
+    
+.function a
+{
+    font-family:宋体;
+    font-size:13px;
+    color:Black;
+    text-decoration:none;
+    }
+    
+.function a:hover
+{
+    color:Red;
+    }
+   
+  /********校外优质课程的行距*********/
+.xwyzkc
+{
+    height:29px;   
+    }

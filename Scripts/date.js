@@ -1,0 +1,10 @@
+﻿var mydate = new Date();
+var year = mydate.getYear();
+if (year < 1000) year += 1900;
+var day = mydate.getDay();
+var month = mydate.getMonth();
+var daym = mydate.getDate();
+if (daym < 10) daym = "0" + daym;
+var dayarray = new Array("星期天", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六");
+var montharray = new Array("1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月");
+document.write(year + "年" + montharray[month] + daym + "日, " + dayarray[day]);

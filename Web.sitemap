@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="~/Default.aspx" title="首页"  description="首页" >
+    
+    <siteMapNode url="" title="教务管理" description="教务管理" roles="院系管理员" >
+      <siteMapNode url="~/CollegeManager/CourseManage.aspx" title="课程信息管理" description="课程信息管理" roles="院系管理员"/>
+    </siteMapNode>
+    
+    <siteMapNode url="" title="教务管理" description="教务管理" roles="教务处管理员">
+    <siteMapNode url="~/DeanManager/CourseManage.aspx" title="课程信息管理" description="课程信息管理" roles="教务处管理员"/> 
+    <siteMapNode url="~/DeanManager/NewsManage.aspx" title="新闻公告管理" description="新闻公告管理" roles="教务处管理员" />
+    <siteMapNode url="~/DeanManager/TeacherFamous.aspx" title="名师推荐" description="名师推荐" roles="教务处管理员" />
+      <siteMapNode url="~/DeanManager/VideoManage.aspx" title="精品课程视频管理" description="精品课程视频管理" roles="教务处管理员" />
+    </siteMapNode>
+    
+    <siteMapNode url="" title="代码及用户管理" description="代码及用户管理" roles="系统管理员,教务处管理员">
+    <siteMapNode url="~/SysManager/DM_教学方式表.aspx" title="教学方式代码表" description="教学方式代码表" roles="系统管理员,教务处管理员" />
+    <siteMapNode url="~/SysManager/DM_考核方式表.aspx" title="考核方式代码表" description="考核方式代码表" roles="系统管理员,教务处管理员" />
+    <siteMapNode url="~/SysManager/DM_课程级别表.aspx" title="课程级别代码表" description="课程级别代码表" roles="系统管理员,教务处管理员" />
+    <siteMapNode url="~/SysManager/DM_课程类别表.aspx" title="课程类别代码表" description="课程类别代码表" roles="系统管理员,教务处管理员" />
+    <siteMapNode url="~/SysManager/DM_课程性质表.aspx" title="课程性质代码表" description="课程性质代码表" roles="系统管理员,教务处管理员" />
+    <siteMapNode url="~/SysManager/DM_面向对象表.aspx" title="面向对象代码表" description="面向对象代码表" roles="系统管理员,教务处管理员" />
+    <siteMapNode url="~/SysManager/DM_获奖级别.aspx" title="获奖级别表" description="获奖级别表" roles="系统管理员,教务处管理员" />
+    <siteMapNode url="~/SysManager/DM_立项级别.aspx" title="立项级别表" description="立项级别表" roles="系统管理员,教务处管理员" />
+    <siteMapNode url="~/SysManager/DM_学期表.aspx" title="学期代码表" description="学期代码表" roles="系统管理员,教务处管理员" />
+    <siteMapNode url="~/SysManager/DM_校外优质课程表.aspx" title="校外优质课程表" description="校外优质课程表" roles="系统管理员,教务处管理员" />
+     <siteMapNode url="~/SysManager/TA_UsersAndRoles.aspx" title="用户管理" description="用户管理" roles="系统管理员,教务处管理员" />
+    </siteMapNode>
+
+    <siteMapNode url="" title="学院及专业管理" description="学院及专业管理" roles="系统管理员,教务处管理员" >
+    <siteMapNode url="~/SysManager/学院表.aspx" title="学院表" description="学院表" roles="系统管理员,教务处管理员" />
+    <siteMapNode url="~/SysManager/专业表.aspx" title="专业表" description="专业表" roles="系统管理员,教务处管理员" />
+    </siteMapNode>
+
+  </siteMapNode>
+</siteMap>

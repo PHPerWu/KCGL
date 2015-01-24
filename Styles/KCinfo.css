@@ -1,0 +1,76 @@
+﻿body {
+}
+   .rptb
+        {
+            font-size: 12px;
+            color: #698B22;
+            border: 1px solid #6B8E23;
+            border-bottom:none;
+        }
+         .rptb tr td
+        {
+            font-size: small;
+            vertical-align: middle;
+            height: 35px;
+            width:8%;
+        }
+        .rptb a
+        {
+            color: #7FFFAA;
+        }
+        .rptb a:hover
+        {
+            color: #698B22;
+        }
+         .tabright tr td
+        {
+            width: 12%;
+            font-size: small;
+            vertical-align: middle;
+            height: 35px;
+        }
+        .tdleft
+        {
+            text-align: right;
+            font-weight: bold;
+        }
+        .tdright
+        {
+            text-align: left;
+        }
+    .returntop
+{
+    background:url(../images/returntop1.jpg);
+    display:none;
+    position:fixed;
+    bottom:50px;
+    right:100px;
+    cursor:pointer;
+ }
+
+/***************用于视频的部分******************/
+.VideoList a
+{
+    font-family:宋体;
+    font-size:13px;
+    color:Black;
+    text-decoration:none;
+    }
+
+.VideoList a:hover
+{
+    color:Red;
+    }
+    
+.VideoTitle
+{
+    width:1000px;
+    font-family: 宋体;
+    font-size: 20px;
+    color: Black;
+    font-weight: bold;
+    padding-left:5px;
+    float:left;
+    line-height:35px;
+    padding-top:10px;
+    }

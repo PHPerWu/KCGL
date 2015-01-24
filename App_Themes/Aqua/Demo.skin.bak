@@ -1,0 +1,20 @@
+<%@ Register TagPrefix="dxe" Namespace="DevExpress.Web.ASPxEditors" Assembly="DevExpress.Web.ASPxEditors.v12.1, Version=12.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<dxe:ASPxDropDownEdit runat="server" SkinID="CheckComboBox" SpriteCssFilePath="~/App_Themes/Aqua/{0}/sprite.css" CssFilePath="~/App_Themes/Aqua/{0}/styles.css" 
+    CssPostfix="Aqua" ShowShadow="False">
+    <ValidationSettings>
+        <ErrorFrameStyle ImageSpacing="4px">
+            <ErrorTextPaddings PaddingLeft="4px"></ErrorTextPaddings>
+        </ErrorFrameStyle>
+    </ValidationSettings>
+    <DropDownWindowStyle BackColor="#ECF4FE" />
+</dxe:ASPxDropDownEdit>
+<dxe:ASPxListBox runat="server" SkinID="CheckComboBoxListBox" CssPostfix="Aqua" CssFilePath="~/App_Themes/Aqua/{0}/styles.css" LoadingPanelText="">
+    <ValidationSettings>
+        <ErrorFrameStyle ImageSpacing="4px">
+            <ErrorTextPaddings PaddingLeft="4px" />
+        </ErrorFrameStyle>
+    </ValidationSettings>
+    <Border BorderStyle="None" />
+    <BorderBottom BorderStyle="Solid" BorderWidth="1px" BorderColor="#C9D6E9" />
+    <LoadingPanelImage Url="~/App_Themes/Aqua/Editors/Loading.gif"></LoadingPanelImage>
+</dxe:ASPxListBox>

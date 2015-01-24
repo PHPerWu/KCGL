@@ -8,6 +8,37 @@
     Namespace="DevExpress.Web.ASPxUploadControl" TagPrefix="dx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
      <title>课程总览</title>
+     <style>
+         .dxbButton_Aqua
+         {
+             background:none !important;
+             border:0 !important;
+             }
+         .dxeButtonEditButton_Youthful
+         {
+             background:#afc185 !important;
+             
+             }
+         .dxgvTitlePanel_Youthful, .dxgvTable_Youthful caption
+         {
+             background-color:#fff;
+             color:#000;
+             font-weight:bold;
+             }
+        .dxb-hb,.dxb
+         {
+             background-color:#afc185 !important;
+            color:#000;
+           border:2px solid;
+            border-radius:2px;
+           -moz-border-radius:2px;
+           
+             }
+         .dxgvHeader_Youthful
+         {
+            background-color:#afc185 !important;
+             }
+     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
             <div class="body">
@@ -16,23 +47,24 @@
                         <td width="100%" valign="top">
                             <dx:ASPxGridView ID="gv_ZY" runat="server" AutoGenerateColumns="False"
                                 KeyFieldName="专业ID" Width="100%" ClientInstanceName="clgv_ZY" 
-                                Theme="Glass">
+                                Theme="Youthful">
                                 <Columns>
                                     <dx:GridViewCommandColumn Caption="专业简介" VisibleIndex="6">
                                         <EditButton Text="详情&gt;&gt;" Visible="True">
                                         </EditButton>
                                     </dx:GridViewCommandColumn>
                                     <dx:GridViewDataTextColumn FieldName="专业ID" VisibleIndex="0" ReadOnly="True" Width="15%">
-                                        <Settings AllowAutoFilter="True" AllowHeaderFilter="True" FilterMode="DisplayText"
+                                        <Settings AllowAutoFilter="false" AllowHeaderFilter="false" FilterMode="DisplayText"
                                             HeaderFilterMode="CheckedList" ShowFilterRowMenu="True" />
                                     </dx:GridViewDataTextColumn>
                                     <dx:GridViewDataTextColumn FieldName="专业名称" VisibleIndex="1" Width="25%">
-                                        <Settings AllowHeaderFilter="True" FilterMode="DisplayText" HeaderFilterMode="CheckedList" />
+                                        <Settings AllowHeaderFilter="false" FilterMode="DisplayText" HeaderFilterMode="CheckedList" />
                                     </dx:GridViewDataTextColumn>
                                     <dx:GridViewDataComboBoxColumn FieldName="所属学院" VisibleIndex="2" Width="25%">
-                                        <PropertiesComboBox DataSourceID="odsDepartment" TextField="学院名称" ValueField="学院ID">
+
+                                        <PropertiesComboBox DataSourceID="odsKKXY" TextField="学院名称" ValueField="学院ID">
                                         </PropertiesComboBox>
-                                        <Settings AllowHeaderFilter="True" FilterMode="DisplayText" HeaderFilterMode="CheckedList" />
+                                        <Settings AllowHeaderFilter="false" FilterMode="DisplayText" HeaderFilterMode="CheckedList" />
                                     </dx:GridViewDataComboBoxColumn>
                                     <dx:GridViewDataTextColumn FieldName="专业英文名称" VisibleIndex="3" Caption="专业类别" 
                                         Visible="False">
@@ -97,7 +129,7 @@
                                                 <td>
                                                     <dx:ASPxGridView ID="gvPYFA" runat="server" AutoGenerateColumns="False" ClientInstanceName="gvPYFA"
                                                         DataSourceID="odsZYFJ" KeyFieldName="附件ID" OnBeforePerformDataSelect="gvPYFA_BeforePerformDataSelect"
-                                                        Width="100%" EnableTheming="True" Theme="Glass">
+                                                        Width="100%" EnableTheming="True" Theme="Youthful">
                                                         <Columns>
                                                             <dx:GridViewDataTextColumn Caption="序号" VisibleIndex="0">
                                                                 <DataItemTemplate>
@@ -329,6 +361,23 @@
                                     <asp:Parameter Name="Original_专业ID" Type="String" />
                                 </UpdateParameters>
                             </asp:ObjectDataSource>
+                <asp:ObjectDataSource ID="odsKKXY" runat="server" DeleteMethod="Delete" 
+                    InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" 
+                    SelectMethod="GetData" TypeName="DMComboxTableAdapters.TA_学院信息表TableAdapter" 
+                    UpdateMethod="Update">
+                    <DeleteParameters>
+                        <asp:Parameter Name="Original_学院ID" Type="String" />
+                    </DeleteParameters>
+                    <InsertParameters>
+                        <asp:Parameter Name="学院ID" Type="String" />
+                        <asp:Parameter Name="学院名称" Type="String" />
+                    </InsertParameters>
+                    <UpdateParameters>
+                        <asp:Parameter Name="学院名称" Type="String" />
+                        <asp:Parameter Name="Original_学院ID" Type="String" />
+                    </UpdateParameters>
+                </asp:ObjectDataSource>
+                            <br />
                         </td>
                     </tr>
                 </table>

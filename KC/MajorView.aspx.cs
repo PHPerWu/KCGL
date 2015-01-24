@@ -12,8 +12,7 @@ public partial class KC_MajorView : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-             this.lblTotal.Text = "访问总量：" + Application["total"].ToString();
-             this.lblOnline.Text = "当前在线人数：" + Application["online"].ToString();
+            
             //202.114.144.0 --- 202.114.159.255 [湖北大学IP地址段] 
             string requestIP = GetUserIP();
             string[] strIP = requestIP.Split('.');
@@ -97,8 +96,5 @@ public partial class KC_MajorView : System.Web.UI.Page
     {
         gv_ZY.DetailRows.CollapseRow(Convert.ToInt32(e.CommandArgument));
     }
-    protected void btnSearch_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("~/KC/SearchResult.aspx?keyWords=" + txtSearch.Text);
-    }
+
 }

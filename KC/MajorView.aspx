@@ -333,10 +333,5 @@
                     </tr>
                 </table>
             </div>
-            <div>
-                &nbsp;</div>
-            <div style="background-color: #6B8E23; height: 5px">
-                &nbsp;</div>
-            <center style="font-size: 12px">
-                版权说明</center>
+
 </asp:Content>

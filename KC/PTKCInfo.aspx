@@ -195,12 +195,7 @@
                 </table>
                 <asp:Label ID="lblkcid" runat="server" Text="" Style="display: none;"></asp:Label>
                 <asp:Label ID="lblhref" runat="server" Text="" Style="display: none;"></asp:Label>
-                <div>
-                    &nbsp;</div>
-                <div style="background-color: #6B8E23; height: 5px">
-                    &nbsp;</div>
-                <center style="font-size: 12px">
-                版权所有：湖北大学 &nbsp; &nbsp;教务处</div>
+              
             <center style="font-size: 12px">
             </center>
         </div>

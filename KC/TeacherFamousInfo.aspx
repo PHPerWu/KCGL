@@ -99,14 +99,7 @@
                     </FooterTemplate>
                 </asp:Repeater>
             </div>
-            <div>
-                &nbsp;</div>
-            <div style="background-color: #6B8E23; height: 5px">
-                &nbsp;</div>
-            <center style="font-size: 12px">
-                版权说明</center>
-        </div>
-    </div>
+
     <asp:ObjectDataSource ID="odsTeacherInfo" runat="server" OldValuesParameterFormatString="original_{0}"
         SelectMethod="GetData教师信息ByID" TypeName="MainDataSetTableAdapters.TA_教师信息表TableAdapter">
         <SelectParameters>

@@ -8,19 +8,19 @@ using DevExpress.Web.ASPxEditors;
 
 public partial class KC_JPKCInfo : System.Web.UI.Page
 {
+    protected string PageTitle;
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
-            //2013.22.29--任俊伟添加
-            this.lblTotal.Text = "访问总量：" + Application["total"].ToString();
-            this.lblOnline.Text = "当前在线人数：" + Application["online"].ToString();
+           
             if (Request.QueryString["KCID"] == null)
             {
                 Response.Redirect("~/Main_index.aspx");
             }
             else
             {
+                PageTitle = "英语畅谈中国"; 
                 //点击次数加1
                 MainDataSetTableAdapters.TA_课程信息表TableAdapter dapter = new MainDataSetTableAdapters.TA_课程信息表TableAdapter();
                 dapter.UpdateDJCS(Request.QueryString["KCID"]);
@@ -42,10 +42,7 @@ public partial class KC_JPKCInfo : System.Web.UI.Page
             }
         }
     }
-    protected void btnSearch_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("~/KC/SearchResult.aspx?keyWords=" + txtSearch.Text);
-    }
+   
     protected void Repeater1_ItemDataBound(object sender, RepeaterItemEventArgs e)
     {
         MainDataSetTableAdapters.TA_课程附件表TableAdapter ada = new MainDataSetTableAdapters.TA_课程附件表TableAdapter();

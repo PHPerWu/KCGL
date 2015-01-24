@@ -11,8 +11,7 @@ public partial class KC_KCinfo : System.Web.UI.Page
     {
         if(!IsPostBack)
         {
-            this.lblTotal.Text = "访问总量：" + Application["total"].ToString();
-            this.lblOnline.Text = "当前在线人数：" + Application["online"].ToString();
+            
             if (Request.QueryString["KCID"] == null)
             {
                 Response.Redirect("~/Main_index.aspx");
@@ -25,8 +24,5 @@ public partial class KC_KCinfo : System.Web.UI.Page
             }
         }
     }
-    protected void btnSearch_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("~/KC/SearchResult.aspx?keyWords=" + txtSearch.Text);
-    }
+   
 }

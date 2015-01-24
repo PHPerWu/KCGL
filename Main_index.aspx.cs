@@ -10,15 +10,28 @@ public partial class Main_index : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!Page.IsPostBack)//added by zengcheng
+    }
+    protected void rptTSKC_ItemCommand(object source, RepeaterCommandEventArgs e)
+    {
+        //TA_课程信息表1TableAdapter adapter = new TA_课程信息表1TableAdapter();
+        //var info = adapter.GetXXKCXXByKCDM(e.CommandArgument.ToString());
+        //var info = adapter.GetDataByKCDM(e.CommandArgument.ToString());
+        MainDataSetTableAdapters.VI_KCINFOTableAdapter adapter = new VI_KCINFOTableAdapter();
+        var info = adapter.GetKCInfoByKCDM(e.CommandArgument.ToString());
+        if (info[0]["精品视频公开课"].ToString() == "1" || info[0]["精品资源共享课"].ToString() == "1")
         {
-            if (HttpContext.Current.User.Identity.IsAuthenticated)
-            {
-            }
-            //added by renjunwei
-            this.lblTotal.Text = "访问总量：" + Application["total"].ToString();
-            this.lblOnline.Text = "当前在线人数：" + Application["online"].ToString();
+            Response.Redirect("~/KC/JPKCInfo.aspx?KCID=" + e.CommandArgument);
         }
+        else
+        {
+            Response.Redirect("~/KC/PTKCInfo.aspx?KCID=" + e.CommandArgument);
+        }
+    }
+    protected void rptJPSP_ItemCommand(object source, RepeaterCommandEventArgs e)
+    {
+        DMDataSetTableAdapters.DM_优质课程TableAdapter adapter = new DMDataSetTableAdapters.DM_优质课程TableAdapter();
+        var info = adapter.GetDataBy优质课程代码(e.CommandArgument.ToString());
+        Response.Redirect(info[0]["优质课程网址"].ToString());
     }
     protected void rptRMKC_ItemCommand(object source, RepeaterCommandEventArgs e)
     {
@@ -52,30 +65,5 @@ public partial class Main_index : System.Web.UI.Page
             Response.Redirect("~/KC/PTKCInfo.aspx?KCID=" + e.CommandArgument);
         }
     }
-    protected void rptTSKC_ItemCommand(object source, RepeaterCommandEventArgs e)
-    {
-        //TA_课程信息表1TableAdapter adapter = new TA_课程信息表1TableAdapter();
-        //var info = adapter.GetXXKCXXByKCDM(e.CommandArgument.ToString());
-        //var info = adapter.GetDataByKCDM(e.CommandArgument.ToString());
-        MainDataSetTableAdapters.VI_KCINFOTableAdapter adapter = new VI_KCINFOTableAdapter();
-        var info = adapter.GetKCInfoByKCDM(e.CommandArgument.ToString());
-        if (info[0]["精品视频公开课"].ToString() == "1" || info[0]["精品资源共享课"].ToString() == "1")
-        {
-            Response.Redirect("~/KC/JPKCInfo.aspx?KCID=" + e.CommandArgument);
-        }
-        else
-        {
-            Response.Redirect("~/KC/PTKCInfo.aspx?KCID=" + e.CommandArgument);
-        }
-    }
-    protected void rptJPSP_ItemCommand(object source, RepeaterCommandEventArgs e)
-    {
-        DMDataSetTableAdapters.DM_优质课程TableAdapter adapter = new DMDataSetTableAdapters.DM_优质课程TableAdapter();
-        var info = adapter.GetDataBy优质课程代码(e.CommandArgument.ToString());
-        Response.Redirect(info[0]["优质课程网址"].ToString());
-    }
-    protected void btnSearch_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("~/KC/SearchResult.aspx?keyWords="+txtSearch.Text);
-    }
+   
 }

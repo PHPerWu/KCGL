@@ -6,6 +6,32 @@
     Namespace="DevExpress.Web.ASPxGridView" TagPrefix="dx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
      <title>课程总览</title>
+      <style>
+         .dxeButtonEditButton_Youthful
+         {
+             background:#afc185 !important;
+             
+             }
+         .dxgvTitlePanel_Youthful, .dxgvTable_Youthful caption
+         {
+             background-color:#fff;
+             color:#000;
+             font-weight:bold;
+             }
+        .dxb-hb,.dxb
+         {
+             background-color:#afc185 !important;
+            color:#000;
+           border:2px solid;
+            border-radius:2px;
+           -moz-border-radius:2px;
+           
+             }
+         .dxgvHeader_Youthful
+         {
+            background-color:#afc185 !important;
+             }
+     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
             <div class="body" style="margin: 0px; padding: 0px">
@@ -24,7 +50,7 @@
                 </div>--%>
                 <%--<div style="float: right; width: 80%">--%>
                 <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" DataSourceID="odsXWYZKC"
-                    KeyFieldName="优质课程代码" Width="100%" Theme="Glass">
+                    KeyFieldName="优质课程代码" Width="100%" Theme="Youthful">
                     <Columns>
                         <dx:GridViewDataTextColumn FieldName="优质课程名称" VisibleIndex="0">
                         </dx:GridViewDataTextColumn>
@@ -57,4 +83,5 @@
                 <asp:ObjectDataSource ID="odsXWYZKC" runat="server" OldValuesParameterFormatString="original_{0}"
                     SelectMethod="GetData" TypeName="DMDataSetTableAdapters.DM_优质课程TableAdapter">
                 </asp:ObjectDataSource>
+            </div>
 </asp:Content>

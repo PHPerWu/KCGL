@@ -12,8 +12,7 @@ public partial class KC_JPKFCourse : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            this.lblTotal.Text = "访问总量：" + Application["total"].ToString();
-            this.lblOnline.Text = "当前在线人数：" + Application["online"].ToString();
+           
         }
     }
 
@@ -38,8 +37,5 @@ public partial class KC_JPKFCourse : System.Web.UI.Page
         string website= ASPxGridView1.GetRowValues(index,"精品课程网址").ToString();
         Response.Redirect(website);
     }
-    protected void btnSearch_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("~/KC/SearchResult.aspx?keyWords=" + txtSearch.Text);
-    }
+
 }

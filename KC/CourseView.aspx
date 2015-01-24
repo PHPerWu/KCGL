@@ -69,7 +69,7 @@
                         </dx:GridViewDataTextColumn>
                         <dx:GridViewDataDropDownEditColumn FieldName="课程名称" VisibleIndex="6" 
                             ShowInCustomizationForm="True">
-                            <Settings AllowHeaderFilter="True" HeaderFilterMode="CheckedList" />
+                            <Settings AllowHeaderFilter="false" HeaderFilterMode="CheckedList" />
                         </dx:GridViewDataDropDownEditColumn>
                         <dx:GridViewDataComboBoxColumn Caption="开课学院" FieldName="开课学院名称" 
                             VisibleIndex="28">
@@ -80,13 +80,13 @@
                             VisibleIndex="15">
                             <PropertiesComboBox DataSourceID="odsKCXZ" TextField="代码含义" ValueField="代码含义">
                             </PropertiesComboBox>
-                            <Settings AllowHeaderFilter="True" HeaderFilterMode="CheckedList" />
+                            <Settings AllowHeaderFilter="false" HeaderFilterMode="CheckedList" />
                         </dx:GridViewDataComboBoxColumn>
                         <dx:GridViewDataComboBoxColumn Caption="课程类别" FieldName="课程类别名" 
                             VisibleIndex="27">
                             <PropertiesComboBox DataSourceID="odsKCLB" TextField="代码含义" ValueField="代码含义">
                             </PropertiesComboBox>
-                            <Settings AllowHeaderFilter="True" HeaderFilterMode="CheckedList" />
+                            <Settings AllowHeaderFilter="false" HeaderFilterMode="CheckedList" />
                         </dx:GridViewDataComboBoxColumn>
                     </Columns>
                     <SettingsPager PageSize="20">

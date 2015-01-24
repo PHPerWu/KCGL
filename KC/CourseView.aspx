@@ -6,6 +6,27 @@
     Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
  <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
      <title>课程总览</title>
+     <style>
+         .dxgvTitlePanel_Youthful, .dxgvTable_Youthful caption
+         {
+             background-color:#fff;
+             color:#000;
+             font-weight:bold;
+             }
+        .dxb-hb,.dxb
+         {
+             background-color:#afc185 !important;
+            color:#000;
+           border:2px solid;
+            border-radius:2px;
+           -moz-border-radius:2px;
+           
+             }
+         .dxgvHeader_Youthful
+         {
+            background-color:#afc185 !important;
+             }
+     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
  
@@ -15,7 +36,7 @@
             <div class="body" style="margin: 0px; padding: 0px">
 
                 <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" DataSourceID="ObjectDataSource1"
-                    KeyFieldName="课程代码" Width="100%" Theme="Glass">
+                    KeyFieldName="课程代码" Width="100%" Theme="Youthful">
                     <Columns>
                         <dx:GridViewDataTextColumn FieldName="课程代码" ReadOnly="True" Visible="False" 
                             VisibleIndex="0">

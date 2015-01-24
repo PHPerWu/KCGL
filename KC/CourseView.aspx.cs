@@ -12,11 +12,7 @@ public partial class KC_CourseView : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if(!IsPostBack)
-        {
-            this.lblTotal.Text = "访问总量：" + Application["total"].ToString();
-            this.lblOnline.Text = "当前在线人数：" + Application["online"].ToString();
-        }
+      
     }
 
 
@@ -35,8 +31,5 @@ public partial class KC_CourseView : System.Web.UI.Page
             Response.Redirect("~/KC/PTKCInfo.aspx?KCID=" + e.CommandArgument);
         }
     }
-    protected void btnSearch_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("~/KC/SearchResult.aspx?keyWords=" + txtSearch.Text);
-    }
+   
 }

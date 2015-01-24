@@ -7,10 +7,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>湖北大学课程中心</title>
-            <link href="Styles/master.css" rel="stylesheet" type="text/css" />
-    <link href="Styles/Main_index.css" rel="stylesheet" type="text/css" />
-    <script src="Scripts/jquery-1.4.1.min.js" type="text/javascript"></script>
-    <script src="Scripts/ScoreTop.js" type="text/javascript"></script>
+            <link href="../Styles/master.css" rel="stylesheet" type="text/css" />
+    <link href="../Styles/Main_index.css" rel="stylesheet" type="text/css" />
+    <script src="../Scripts/jquery-1.4.1.min.js" type="text/javascript"></script>
+    <script src="../Scripts/ScoreTop.js" type="text/javascript"></script>
     <script type="text/javascript">
 
         //下拉菜单
@@ -52,8 +52,8 @@
     <form id="form1" runat="server">
     <div>
             <div class="returntop">
-            <img alt="回顶部" id="img1" src="image/returntop1.jpg" />
-            <img alt="回顶部" id="img2" style="display: none;" src="image/returntop2.jpg" /></div>
+            <img alt="回顶部" id="img1" src="../image/returntop1.jpg" />
+            <img alt="回顶部" id="img2" style="display: none;" src="../image/returntop2.jpg" /></div>
         <div class="container">
             <div>  
                 <div id="header">
@@ -86,33 +86,33 @@
                 </div>
                 <div >
                     <ul class="topnav">
-                        <li style="font-size: 13px;"><a href="Main_index.aspx">首页</a>
+                        <li style="font-size: 13px;"><a href="../Main_index.aspx">首页</a>
      
                         </li>
-                        <li style="font-size: 13px;"><a href="KC/KCfaculty.aspx">课程总览</a>
+                        <li style="font-size: 13px;"><a href="KCfaculty.aspx">课程总览</a>
                             <ul class="subnav">
-                                <li><a href="KC/CourseView.aspx">所有课程</a></li>
-                                <li><a href="KC/RMCourse.aspx">热门课程</a></li>
-                                <li><a href="KC/JPKFCourse.aspx">精品开放课程</a></li>
-                                <li><a href="KC/TSJYCourse.aspx">通识教育选修课</a></li>
-                                <li><a href="KC/XWYZCourse.aspx">校外优质课程</a></li>
+                                <li><a href="CourseView.aspx">所有课程</a></li>
+                                <li><a href="RMCourse.aspx">热门课程</a></li>
+                                <li><a href="JPKFCourse.aspx">精品开放课程</a></li>
+                                <li><a href="TSJYCourse.aspx">通识教育选修课</a></li>
+                                <li><a href="XWYZCourse.aspx">校外优质课程</a></li>
                             </ul>
                         </li>
-                        <li style="font-size: 13px;"><a href="KC/MajorView.aspx?majortype=4">专业设置</a>
+                        <li style="font-size: 13px;"><a href="MajorView.aspx?majortype=4">专业设置</a>
                              <ul class="subnav">
-                                <li><a href="KC/MajorView.aspx?majortype=1">品牌(特色)专业</a></li>
-                                <li><a href="KC/MajorView.aspx?majortype=2">战略支柱产业专业</a></li>
-                                <li><a href="KC/MajorView.aspx?majortype=3">综合改革试点专业</a></li>
+                                <li><a href="MajorView.aspx?majortype=1">品牌(特色)专业</a></li>
+                                <li><a href="MajorView.aspx?majortype=2">战略支柱产业专业</a></li>
+                                <li><a href="MajorView.aspx?majortype=3">综合改革试点专业</a></li>
                             </ul>
                         </li>
-                        <li style="font-size: 13px;"><a href="KC/TeacherFamous.aspx?tchtype=4">优秀教师</a>
+                        <li style="font-size: 13px;"><a href="TeacherFamous.aspx?tchtype=4">优秀教师</a>
                              <ul class="subnav">
-                                <li><a href="KC/TeacherFamous.aspx?tchtype=1">教学名师</a></li>
-                                <li><a href="KC/TeacherFamous.aspx?tchtype=2">教学质量优秀奖教师</a></li>
-                                <li><a href="KC/TeacherFamous.aspx?tchtype=3">教学技能大赛获奖教师</a></li>
+                                <li><a href="TeacherFamous.aspx?tchtype=1">教学名师</a></li>
+                                <li><a href="TeacherFamous.aspx?tchtype=2">教学质量优秀奖教师</a></li>
+                                <li><a href="TeacherFamous.aspx?tchtype=3">教学技能大赛获奖教师</a></li>
                             </ul>
                         </li>
-                        <li style="font-size: 13px;"><a href="KC/News.aspx">新闻公告</a>
+                        <li style="font-size: 13px;"><a href="News.aspx">新闻公告</a>
 
                         <li style="font-size: 13px;"><a>友情链接</a>
                             <ul class="subnav">

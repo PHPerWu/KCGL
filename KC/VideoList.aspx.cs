@@ -14,9 +14,7 @@ public partial class VideoList : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            this.lblTotal.Text = "访问总量：" + Application["total"].ToString();
-            this.lblOnline.Text = "当前在线人数：" + Application["online"].ToString();
-            //获取传过来的值，传值给HiddenField，得到不同的视频列表
+            
             string KCID = Request.QueryString["KCID"].ToString();
             hfdKCID.Value = KCID;
             //显示不同的标题
@@ -24,8 +22,5 @@ public partial class VideoList : System.Web.UI.Page
             lblTitle.Text = ada.GetKCInfoByKCDM(KCID).Rows[0]["课程名称"].ToString() + "—视频列表";
         }
     }
-    protected void btnSearch_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("~/KC/SearchResult.aspx?keyWords=" + txtSearch.Text);
-    }
+  
 }

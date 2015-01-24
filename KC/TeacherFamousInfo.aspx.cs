@@ -13,8 +13,7 @@ public partial class KC_TeacherFamous : System.Web.UI.Page
         if (!IsPostBack)
         {
             //2013.22.30--任俊伟修改
-            this.lblTotal.Text = "访问总量：" + Application["total"].ToString();
-            this.lblOnline.Text = "当前在线人数：" + Application["online"].ToString();
+        
             string str = Request.QueryString["str"].ToString();
             var info = str.Split('|');
             Session["TeacherID"] = info[0];
@@ -35,8 +34,5 @@ public partial class KC_TeacherFamous : System.Web.UI.Page
             (Repeater1.Items[i].FindControl("lblWinning") as Label).Text = adaWin.GetDataByID(info[2]).Rows[0]["代码含义"].ToString();
         }
     }
-    protected void btnSearch_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("~/KC/SearchResult.aspx?keyWords=" + txtSearch.Text);
-    }
+
 }

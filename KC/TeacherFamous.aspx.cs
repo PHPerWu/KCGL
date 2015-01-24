@@ -14,8 +14,7 @@ public partial class KC_TeacherFamous : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            this.lblTotal.Text = "访问总量：" + Application["total"].ToString();
-            this.lblOnline.Text = "当前在线人数：" + Application["online"].ToString();
+           
        
 
         //传tchtype值过来，1表示“教学名师”，2表示“教学质量优秀奖教师”，3表示“教学技能大赛获奖教师”
@@ -76,8 +75,5 @@ public partial class KC_TeacherFamous : System.Web.UI.Page
         adapter.Update点击量(a[0]);
         Response.Redirect("~/KC/TeacherFamousInfo.aspx?str="+str);
     }
-    protected void btnSearch_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("~/KC/SearchResult.aspx?keyWords=" + txtSearch.Text);
-    }
+ 
 }

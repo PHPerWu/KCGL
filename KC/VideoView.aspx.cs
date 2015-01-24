@@ -15,8 +15,7 @@ public partial class VideoView : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            this.lblTotal.Text = "访问总量：" + Application["total"].ToString();
-            this.lblOnline.Text = "当前在线人数：" + Application["online"].ToString();
+           
             //得到视频的ID，点击量加1，获取相关信息并显示
             string id = Request.QueryString["ID"].ToString();
             TA_课程视频表TableAdapter adapter = new TA_课程视频表TableAdapter();
@@ -48,8 +47,5 @@ public partial class VideoView : System.Web.UI.Page
     {
         ClientScript.RegisterStartupScript(Page.GetType(), "", "<script language=javascript>window.opener=null;window.open('','_self');window.close();</script>");
     }
-    protected void btnSearch_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("~/KC/SearchResult.aspx?keyWords=" + txtSearch.Text);
-    }
+
 }

@@ -10,22 +10,57 @@
     Namespace="DevExpress.Web.ASPxSpellChecker" TagPrefix="dx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
      <title>课程总览</title>
+      <style>
+         .dxbButton_Aqua
+         {
+             background:none !important;
+             border:0 !important;
+             }
+         .dxeButtonEditButton_Youthful
+         {
+             background:#afc185 !important;
+             
+             }
+         .dxgvTitlePanel_Youthful, .dxgvTable_Youthful caption
+         {
+             background-color:#fff;
+             color:#000;
+             font-weight:bold;
+             }
+        .dxb-hb,.dxb
+         {
+             background-color:#afc185 !important;
+            color:#000;
+           border:2px solid;
+            border-radius:2px;
+           -moz-border-radius:2px;
+           
+             }
+         .dxgvHeader_Youthful
+         {
+            background-color:#afc185 !important;
+             }
+     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
             <div class="body">
                 <dx:ASPxGridView ID="gvFamousTeacher" runat="server" 
                     AutoGenerateColumns="False" KeyFieldName="教师ID" Width="100%" 
-                    ClientInstanceName="gvCFamousTeacher" Theme="Glass">
+                    ClientInstanceName="gvCFamousTeacher" Theme="Youthful" 
+                    EnableTheming="True">
                     <Columns>
-                        <dx:GridViewDataTextColumn Caption="序号" VisibleIndex="0">
+                        <dx:GridViewCommandColumn ShowClearFilterButton="True" VisibleIndex="0">
+                        </dx:GridViewCommandColumn>
+                        <dx:GridViewDataTextColumn Caption="序号" VisibleIndex="1">
                             <DataItemTemplate>
                                 <%#Container.VisibleIndex+1 %>
                             </DataItemTemplate>
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn FieldName="教师ID" ReadOnly="True" Visible="False" VisibleIndex="1">
+                        <dx:GridViewDataTextColumn FieldName="教师ID" ReadOnly="True" Visible="False" 
+                            VisibleIndex="2">
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn FieldName="教师姓名" VisibleIndex="2">
-                            <Settings AllowHeaderFilter="True" HeaderFilterMode="CheckedList" />
+                        <dx:GridViewDataTextColumn FieldName="教师姓名" VisibleIndex="3">
+                            <Settings AllowHeaderFilter="False" HeaderFilterMode="CheckedList" />
                             <DataItemTemplate>
                                 <table>
                                     <tr>
@@ -42,28 +77,28 @@
                                 </table>
                             </DataItemTemplate>
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataComboBoxColumn FieldName="所属学院" VisibleIndex="5">
+                        <dx:GridViewDataComboBoxColumn FieldName="所属学院" VisibleIndex="6">
                             <PropertiesComboBox DataSourceID="odsDepartment" TextField="学院名称" ValueField="学院ID">
                             </PropertiesComboBox>
-                            <Settings AllowHeaderFilter="True" HeaderFilterMode="CheckedList" />
+                            <Settings AllowHeaderFilter="False" HeaderFilterMode="CheckedList" />
                         </dx:GridViewDataComboBoxColumn>
-                        <dx:GridViewDataTextColumn FieldName="教师图片" VisibleIndex="6" Visible="False">
+                        <dx:GridViewDataTextColumn FieldName="教师图片" VisibleIndex="7" Visible="False">
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn FieldName="教师简介" VisibleIndex="7" Visible="False">
+                        <dx:GridViewDataTextColumn FieldName="教师简介" VisibleIndex="8" Visible="False">
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataComboBoxColumn FieldName="获奖级别" VisibleIndex="3">
+                        <dx:GridViewDataComboBoxColumn FieldName="获奖级别" VisibleIndex="4">
                             <PropertiesComboBox DataSourceID="odsWinning" TextField="代码含义" ValueField="代码ID">
                             </PropertiesComboBox>
-                            <Settings AllowHeaderFilter="True" HeaderFilterMode="CheckedList" />
+                            <Settings AllowHeaderFilter="False" HeaderFilterMode="CheckedList" />
                         </dx:GridViewDataComboBoxColumn>
-                        <dx:GridViewDataTextColumn FieldName="获奖年度" VisibleIndex="4">
-                            <Settings AllowHeaderFilter="True" HeaderFilterMode="CheckedList" />
+                        <dx:GridViewDataTextColumn FieldName="获奖年度" VisibleIndex="5">
+                            <Settings AllowHeaderFilter="False" HeaderFilterMode="CheckedList" />
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn FieldName="点击量" VisibleIndex="8">
+                        <dx:GridViewDataTextColumn FieldName="点击量" VisibleIndex="9">
                             <CellStyle HorizontalAlign="Center">
                             </CellStyle>
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn Caption="查看详情" VisibleIndex="9">
+                        <dx:GridViewDataTextColumn Caption="查看详情" VisibleIndex="10">
                             <DataItemTemplate>
                                 <dx:ASPxButton ID="btnInfo" runat="server" 
                                     CommandArgument='<%# Eval("教师ID")+"|"+Eval("所属学院")+"|"+Eval("获奖级别") %>' EnableTheming="True" 
@@ -77,7 +112,7 @@
                     <SettingsPager>
                         <Summary Text="第{0}页/共{1}页(共{2}条)" />
                     </SettingsPager>
-                    <Settings ShowTitlePanel="True" />
+                    <Settings ShowTitlePanel="True" ShowFilterRow="True" />
                     <SettingsText Title="优秀教师" PopupEditFormCaption="新增名师" CommandDelete="删除" CommandEdit="编辑"
                         ConfirmDelete="确定删除吗？" />
                     <SettingsPopup>

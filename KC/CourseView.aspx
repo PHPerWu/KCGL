@@ -7,6 +7,11 @@
  <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
      <title>课程总览</title>
      <style>
+         .dxeButtonEditButton_Youthful
+         {
+             background:#afc185 !important;
+             
+             }
          .dxgvTitlePanel_Youthful, .dxgvTable_Youthful caption
          {
              background-color:#fff;
@@ -38,27 +43,22 @@
                 <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" DataSourceID="ObjectDataSource1"
                     KeyFieldName="课程代码" Width="100%" Theme="Youthful">
                     <Columns>
+                        <dx:GridViewCommandColumn ShowClearFilterButton="True" VisibleIndex="0" 
+                            ShowInCustomizationForm="True">
+                        </dx:GridViewCommandColumn>
                         <dx:GridViewDataTextColumn FieldName="课程代码" ReadOnly="True" Visible="False" 
-                            VisibleIndex="0">
+                            VisibleIndex="1">
+                            <PropertiesTextEdit Native="True">
+                            </PropertiesTextEdit>
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn FieldName="总学时" VisibleIndex="17" Caption="总学时/周数">
+                        <dx:GridViewDataTextColumn FieldName="总学时" VisibleIndex="19" Caption="总学时/周数">
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn FieldName="课程名称" VisibleIndex="1">
-                            <Settings AllowHeaderFilter="True" HeaderFilterMode="CheckedList" />
+                        <dx:GridViewDataTextColumn FieldName="课程学分" VisibleIndex="16">
+                            <DataItemTemplate>
+                                <%#Eval("课程学分").ToString().Length>3? Eval("课程学分").ToString().Substring(0,3):Eval("课程学分").ToString() %>
+                            </DataItemTemplate>
                         </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn FieldName="课程学分" VisibleIndex="14">
-                        <DataItemTemplate><%#Eval("课程学分").ToString().Length>3? Eval("课程学分").ToString().Substring(0,3):Eval("课程学分").ToString() %></DataItemTemplate>
-                        </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn FieldName="开课学院名称" VisibleIndex="20" Caption="开课学院">
-                            <Settings AllowHeaderFilter="True" HeaderFilterMode="CheckedList" />
-                        </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn FieldName="课程性质名" VisibleIndex="6" Caption="课程性质">
-                            <Settings AllowHeaderFilter="True" HeaderFilterMode="CheckedList" />
-                        </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn FieldName="课程类别名" VisibleIndex="18" Caption="课程类别">
-                            <Settings AllowHeaderFilter="True" HeaderFilterMode="CheckedList" />
-                        </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn Caption="查看详情" VisibleIndex="22">
+                        <dx:GridViewDataTextColumn VisibleIndex="29" Caption="查看详情">
                             <DataItemTemplate>
                                 <dx:ASPxButton ID="btnInfo" runat="server" 
                                     CommandArgument='<%# Eval("课程代码") %>' EnableTheming="True" 
@@ -67,11 +67,32 @@
                                 </dx:ASPxButton>
                             </DataItemTemplate>
                         </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataDropDownEditColumn FieldName="课程名称" VisibleIndex="6" 
+                            ShowInCustomizationForm="True">
+                            <Settings AllowHeaderFilter="True" HeaderFilterMode="CheckedList" />
+                        </dx:GridViewDataDropDownEditColumn>
+                        <dx:GridViewDataComboBoxColumn Caption="开课学院" FieldName="开课学院名称" 
+                            VisibleIndex="28">
+                            <PropertiesComboBox DataSourceID="odsKKXY" TextField="学院名称" ValueField="学院名称">
+                            </PropertiesComboBox>
+                        </dx:GridViewDataComboBoxColumn>
+                        <dx:GridViewDataComboBoxColumn Caption="课程性质" FieldName="课程性质名" 
+                            VisibleIndex="15">
+                            <PropertiesComboBox DataSourceID="odsKCXZ" TextField="代码含义" ValueField="代码含义">
+                            </PropertiesComboBox>
+                            <Settings AllowHeaderFilter="True" HeaderFilterMode="CheckedList" />
+                        </dx:GridViewDataComboBoxColumn>
+                        <dx:GridViewDataComboBoxColumn Caption="课程类别" FieldName="课程类别名" 
+                            VisibleIndex="27">
+                            <PropertiesComboBox DataSourceID="odsKCLB" TextField="代码含义" ValueField="代码含义">
+                            </PropertiesComboBox>
+                            <Settings AllowHeaderFilter="True" HeaderFilterMode="CheckedList" />
+                        </dx:GridViewDataComboBoxColumn>
                     </Columns>
                     <SettingsPager PageSize="20">
                         <Summary Text="第{0}页/共{1}页(共{2}条)" />
                     </SettingsPager>
-                    <Settings ShowTitlePanel="True" />
+                    <Settings ShowTitlePanel="True" ShowFilterRow="True" />
                     <SettingsText Title="课程总览" />
                     <Styles>
                         <Header HorizontalAlign="Center">
@@ -85,6 +106,63 @@
                 <%--  </div>--%>
                 <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}"
                     SelectMethod="GetDataByAllCollege" TypeName="MainDataSetTableAdapters.TA_课程信息表TableAdapter">
+                </asp:ObjectDataSource>
+                <asp:ObjectDataSource ID="odsKKXY" runat="server" DeleteMethod="Delete" 
+                    InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" 
+                    SelectMethod="GetData" TypeName="DMComboxTableAdapters.TA_学院信息表TableAdapter" 
+                    UpdateMethod="Update">
+                    <DeleteParameters>
+                        <asp:Parameter Name="Original_学院ID" Type="String" />
+                    </DeleteParameters>
+                    <InsertParameters>
+                        <asp:Parameter Name="学院ID" Type="String" />
+                        <asp:Parameter Name="学院名称" Type="String" />
+                    </InsertParameters>
+                    <UpdateParameters>
+                        <asp:Parameter Name="学院名称" Type="String" />
+                        <asp:Parameter Name="Original_学院ID" Type="String" />
+                    </UpdateParameters>
+                </asp:ObjectDataSource>
+                <br />
+                <asp:ObjectDataSource ID="odsKCXZ" runat="server" DeleteMethod="Delete" 
+                    InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" 
+                    SelectMethod="GetData" TypeName="DMDataSetTableAdapters.DM_课程性质表TableAdapter" 
+                    UpdateMethod="Update">
+                    <DeleteParameters>
+                        <asp:Parameter Name="Original_代码ID" Type="String" />
+                    </DeleteParameters>
+                    <InsertParameters>
+                        <asp:Parameter Name="代码ID" Type="String" />
+                        <asp:Parameter Name="代码含义" Type="String" />
+                        <asp:Parameter Name="启用标志" Type="String" />
+                        <asp:Parameter Name="备注" Type="String" />
+                    </InsertParameters>
+                    <UpdateParameters>
+                        <asp:Parameter Name="代码含义" Type="String" />
+                        <asp:Parameter Name="启用标志" Type="String" />
+                        <asp:Parameter Name="备注" Type="String" />
+                        <asp:Parameter Name="Original_代码ID" Type="String" />
+                    </UpdateParameters>
+                </asp:ObjectDataSource>
+                <asp:ObjectDataSource ID="odsKCLB" runat="server" DeleteMethod="Delete" 
+                    InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" 
+                    SelectMethod="GetData" TypeName="DMDataSetTableAdapters.DM_课程类别表TableAdapter" 
+                    UpdateMethod="Update">
+                    <DeleteParameters>
+                        <asp:Parameter Name="Original_代码ID" Type="String" />
+                    </DeleteParameters>
+                    <InsertParameters>
+                        <asp:Parameter Name="代码含义" Type="String" />
+                        <asp:Parameter Name="代码ID" Type="String" />
+                        <asp:Parameter Name="启用标志" Type="String" />
+                        <asp:Parameter Name="备注" Type="String" />
+                    </InsertParameters>
+                    <UpdateParameters>
+                        <asp:Parameter Name="代码含义" Type="String" />
+                        <asp:Parameter Name="启用标志" Type="String" />
+                        <asp:Parameter Name="备注" Type="String" />
+                        <asp:Parameter Name="Original_代码ID" Type="String" />
+                    </UpdateParameters>
                 </asp:ObjectDataSource>
             </div>
 </asp:Content>

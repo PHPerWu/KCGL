@@ -1,0 +1,124 @@
+﻿
+  
+  
+
+    .wrap{width:250px;
+height:240px;
+overflow:hidden;position:relative; border:0px solid #f00;
+right:0px;
+        }
+    .hide{display:none;}
+    #tab_t{width:190px;height:20px;line-height:20px;background-color:transparent;position:absolute;bottom:2px; 
+z-index:1;
+            left: 1px;
+        }
+    #tab_t li{float:right;width:20px;height:20px;text-align:center;margin:0 0 0 6px;font-family:"Arial";font-size:12px;color:#fff;background:#000;}
+    #tab_t .act{ position:relative; height:25px; margin-bottom:-1px; background:#f00;}
+    #tab_c {position:relative;  z-index:0;
+
+  
+}
+        
+        .page
+        { margin-left:auto;
+          margin-right:auto;  
+         }
+         .style1
+        {
+            width: 100%;
+            height:690px;           
+        }   
+        .title
+        {
+             font-style:inherit;
+             font-family:Arial;
+             font-size:medium;
+             color:Black;
+            }
+        .subtitle1
+        {
+           
+            height: 20px;
+            vertical-align:middle;
+            font-size:14px;          
+            margin-top:0px;
+            background-image:url(../image/round_background.jpg);
+        }
+        
+        .subtitle2
+        { 
+            height: 20px;         
+               
+            font-size: medium;
+            margin-top:0px; 
+            border-bottom:1px solid #6495ED; 
+            background-image:url(../image/template.jpg);
+             width : 420px;
+}
+        .subtitle3
+        {  
+            height: 20px;                   
+            font-size:medium;
+            margin-top:0px;
+            border-bottom:1px solid #6495ED;
+            background-image:url(../image/template.jpg);
+            }
+        .zixiang
+        {
+            font-size:medium;
+            height:30px;        
+            padding-left:20%;     
+            text-align:left;
+            border:1px solid White; 
+            background-image:url(../image/longbutton.jpg);
+        }
+        .zixiang:hover
+        {
+             background-color:#0060BF;
+        }
+        .frame1
+        {
+           margin:1px 0px 2px 0px;
+           
+            }
+        .frame2
+        {
+             margin:1px 0px 0px 0px;
+           
+            }  
+         .frame3
+        {   margin:0px 0px 0px 0px;      
+            
+            }  
+         #foot
+         {
+             width:960px;
+             background-image:url(../image/foot.jpg); 
+             }
+             
+             
+ /*圆角边框开始*/
+.xtop, .xbottom {display:block;background:transparent;font-size:1px;}
+.xb1, .xb2, .xb3, .xb4 {display:block;overflow:hidden;}
+.xb1, .xb2, .xb3 {height:1px;}
+.xb2, .xb3, .xb4 {border-left:1px solid #77cce7;border-right:1px solid #77cce7;}
+.xb1 {margin:0 5px;background:#77cce7;}
+.xb2 {margin:0 3px;border-width:0 2px;}
+.xb3 {margin:0 2px;}
+.xb4 {height:2px;margin:0 1px;}
+.xboxcon {margin:0px;display:block;border:0 solid #77cce7;border-width:0 1px;}
+/*圆角边框结束*/
+
+       
+.sub
+{
+    font-family: 宋体, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+}
+#Repeater4
+{
+    font-family: 宋体, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+}

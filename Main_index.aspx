@@ -6,6 +6,63 @@
     Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
     <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
    <title>首页</title>
+   <link href="Styles/homepage.css" rel="stylesheet" type="text/css" />
+   <style>
+        .hide
+        {
+            display:none;
+            }
+   </style>
+   
+   <script type="text/javascript">
+       //以下是图片切换函数代码
+       window.onload = function () {
+           tab("tab_t", "li", "tab_c", "div", "onmouseover")
+           function tab(tab_t, tab_t_tag, tab_c, tag_c_tag, evt) {
+               tab_t = document.getElementById("tab_t");
+               var tab_t_li = tab_t.getElementsByTagName("li");
+               tab_c = document.getElementById("tab_c");
+               var tab_c_li = tab_c.getElementsByTagName("div");
+               var len = tab_t_li.length;
+               var i = 0;
+               var timer = null;
+               var num = 0;
+               for (i = 0; i < len; i++) {
+                   tab_t_li[i].index = i;
+                   tab_t_li[i].onmouseover = function () {
+                       clearInterval(timer);
+                       num = this.index;
+                       tab_change()
+                   }
+                   tab_t_li[i].onmouseout = function () {
+                       autoplay();
+                   }
+               }
+
+               function tab_change() {
+                   for (i = 0; i < len; i++) {
+                       tab_t_li[i].className = '';
+                       tab_c_li[i].className = 'hide';
+                   }
+                   tab_t_li[num].className = 'act';
+                   tab_c_li[num].className = '';
+               }
+
+               function autoplay() {
+                   timer = setInterval(function () {
+                       num--;
+                       if (num < 0) num = len - 1;
+                       tab_change();
+                   }, 2000);
+               }
+               autoplay();
+           }
+       }
+
+       function ddl_change() {
+           window.open(document.getElementById("ddlYouqinglianjie").value);
+       }
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div>
@@ -19,101 +76,43 @@
                                         <table width="100%" style="height: 100px; line-height: 25px">
                                             <tr>
                                                 <td valign="top">
-                                                    <div>
-                                                        <b class="b1"></b><b class="b2 d1"></b><b class="b3 d1"></b><b class="b4 d1"></b>
-                                                        <div class="b d1 k">
-                                                            <font size="4" style="margin: 0px 10px;"><strong>登陆</strong>
-                                                                <asp:Login ID="Login" runat="server" BackColor="#F7F8F9" BorderColor="#E6E2D8" BorderStyle="Solid"
-                                                                    BorderWidth="0px" Font-Names="宋体" Font-Size="13px" BorderPadding="4" Height="150px"
-                                                                    PasswordLabelText="密码：" TitleText="" UserNameLabelText="用户名：" Width="200px" ForeColor="#999999">
-                                                                    <CheckBoxStyle Font-Size="12px" />
-                                                                    <InstructionTextStyle Font-Italic="True" ForeColor="Black" />
-                                                                    <LabelStyle Font-Size="12px" />
-                                                                    <LayoutTemplate>
-                                                                        <table cellpadding="4" cellspacing="0" style="border-collapse: collapse;">
-                                                                            <tr>
-                                                                                <td>
-                                                                                    <table cellpadding="0" style="height: 150px; width: 200px;">
-                                                                                        <tr>
-                                                                                            <br />
-                                                                                            <td align="right" valign="middle" width="100px">
-                                                                                                <font size="4">
-                                                                                                    <asp:Image ID="Image3" runat="server" ImageUrl="~/image/user.png" />
-                                                                                                </font>
-                                                                                                <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName">用户名：</asp:Label>
-                                                                                            </td>
-                                                                                            <td valign="middle">
-                                                                                                <asp:TextBox ID="UserName" runat="server" Font-Size="12px" Height="15px" Width="82px"></asp:TextBox>
-                                                                                                <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName"
-                                                                                                    ErrorMessage="必须填写“用户名”。" ForeColor="#FF3300" ToolTip="必须填写“用户名”。" ValidationGroup="Login">*</asp:RequiredFieldValidator>
-                                                                                            </td>
-                                                                                        </tr>
-                                                                                        <tr>
-                                                                                            <td align="right" valign="middle">
-                                                                                                <font size="4">
-                                                                                                    <asp:Image ID="Image2" runat="server" ImageUrl="~/image/key.png" />
-                                                                                                </font>
-                                                                                                <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password">密&nbsp;码：</asp:Label>
-                                                                                            </td>
-                                                                                            <td valign="middle">
-                                                                                                <asp:TextBox ID="Password" runat="server" Font-Size="12px" Height="15px" TextMode="Password"
-                                                                                                    Width="82px"></asp:TextBox>
-                                                                                                <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password"
-                                                                                                    ErrorMessage="必须填写“密码”。" ForeColor="#FF3300" ToolTip="必须填写“密码”。" ValidationGroup="Login">*</asp:RequiredFieldValidator>
-                                                                                            </td>
-                                                                                        </tr>
-                                                                                        <tr>
-                                                                                            <td colspan="2" style="font-size: 12px;">
-                                                                                                <asp:CheckBox ID="RememberMe" runat="server" Text="下次记住我。" />
-                                                                                            </td>
-                                                                                        </tr>
-                                                                                        <tr>
-                                                                                            <td align="center" colspan="2" style="color: Red;">
-                                                                                                <asp:Literal ID="FailureText" runat="server" EnableViewState="False"></asp:Literal>
-                                                                                            </td>
-                                                                                        </tr>
-                                                                                        <tr>
-                                                                                            <td align="right" colspan="2">
-                                                                                                <asp:Button ID="LoginButton" runat="server" BackColor="White" BorderColor="#C5BBAF"
-                                                                                                    BorderStyle="Solid" BorderWidth="1px" CommandName="Login" CssClass="btnstyle"
-                                                                                                    Font-Names="Verdana" Font-Size="12px" ForeColor="Black" Text="登录" ValidationGroup="Login"
-                                                                                                    Width="50px" />
-                                                                                            </td>
-                                                                                        </tr>
-                                                                                        <tr>
-                                                                                            <td colspan="2">
-                                                                                                <table width="100%">
-                                                                                                    <tr>
-                                                                                                        <td>
-                                                                                                            <a href="http://jwxt.hubu.edu.cn/" target="_blank"><asp:Image ID="imgbtn_jwxt" runat="server" ImageUrl="~/image/教务系统.jpg" Width="105px" Height="26px" /></a>
-                                                                                                           <%-- <asp:ImageButton ID="imgbtn_jwxt" runat="server" ImageUrl="~/image/教务系统.jpg" PostBackUrl="http://jwc.hubu.edu.cn/"
-                                                                                                                 />--%>
-                                                                                                        </td>
-                                                                                                        <td>
-                                                                                                         <a href="http://jwxt.hubu.edu.cn/tkglAction.do?method=wztzkb&fs=?&selectUrl=" target="_blank"><asp:Image ID="Image1" runat="server" ImageUrl="~/image/课表查询.jpg" Width="105px" Height="26px" /></a>
-                                                                                                            <%--<asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/image/课表查询.jpg" PostBackUrl="http://jwc.hubu.edu.cn/"
-                                                                                                                Width="105px" Height="26px" />--%>
-                                                                                                        </td>
-                                                                                                    </tr>
-                                                                                                </table>
-                                                                                            </td>
-                                                                                        </tr>
-                                                                                    </table>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </table>
-                                                                    </LayoutTemplate>
-                                                                    <LoginButtonStyle BackColor="White" BorderColor="#C5BBAF" BorderStyle="Solid" BorderWidth="1px"
-                                                                        Font-Names="Verdana" CssClass="btnstyle" Font-Size="12px" ForeColor="Black" Width="50px" />
-                                                                    <TextBoxStyle Font-Size="12px" Height="15px" Width="120px" />
-                                                                    <TitleTextStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="#FFFFFF" Font-Size="0.9em" />
-                                                                    <ValidatorTextStyle ForeColor="#FF3300" />
-                                                                </asp:Login>
-                                                            </font>
-                                                        </div>
-                                                        <b class="b4b d1"></b><b class="b3b d1"></b><b class="b2b d1"></b><b class="b1b">
-                                                        </b>
-                                                    </div>
+                                                <div id="frame">
+                            <div class="wrap">
+                                  <ul id="tab_t">  
+                                    <li class="act">4</li>    
+                                    <li>3</li>
+                                    <li>2</li>
+                                    <li>1</li>  
+                                  </ul>
+                                <asp:ObjectDataSource ID="odsLunbo" runat="server" InsertMethod="Insert" 
+                                      OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" 
+                                      TypeName="ImageTableAdapters.TA_轮播图片表TableAdapter">
+                                    <InsertParameters>
+                                        <asp:Parameter Name="图片ID" Type="String" />
+                                        <asp:Parameter Name="图片名称" Type="String" />
+                                        <asp:Parameter Name="上传时间" Type="String" />
+                                        <asp:Parameter Name="上传人IP" Type="String" />
+                                    </InsertParameters>
+                                  </asp:ObjectDataSource>
+                                  
+                                    <div>
+                                                       
+                                                        <div id="tab_c">
+                                                        <asp:Repeater ID="rptLunbo" runat="server" DataSourceID="odsLunbo">
+
+                                                                     <ItemTemplate>
+                                                                        <div><a href="<%#Eval("图片链接") %>"><img alt="" src="image/<%#Eval("图片名称") %>" style="width: 230px;height:200px;"  /></a></div>
+                                                                     </ItemTemplate>
+                                                        </asp:Repeater>
+                                                            <%-- <div id="divrmkc">
+                                                        
+                                                    </div>--%>
+                                                     </div>
+                                                        
+                                     </div>
+                              </div>
+                        </div>
+                                                    
                                                 </td>
                                                 <td valign="top">
                                                     &nbsp;
@@ -239,9 +238,8 @@
                                                     <b class="b4"></b><b class="b2"></b><b class="b3"></b><b class="b2"></b><b class="b1">
                                                     </b>
                                                 </div>
-                                                <%-- <div id="divrmkc">
-                                                        
-                                                    </div>--%>
+                                                <%-- <a href='KC/KCinfo.aspx?KCID=<%#Eval("课程代码")%>'> <%#Eval("课程名称")%>
+                                                        </a>--%>
                                                 <div align="center">
                                                     <asp:Repeater ID="rptRMKC" runat="server" DataSourceID="odsRMKC" OnItemCommand="rptRMKC_ItemCommand">
                                                         <HeaderTemplate>
@@ -282,30 +280,22 @@
                                                     <b class="b4"></b><b class="b2"></b><b class="b3"></b><b class="b2"></b><b class="b1">
                                                     </b>
                                                 </div>
-                                                <%-- <a href='KC/KCinfo.aspx?KCID=<%#Eval("课程代码")%>'> <%#Eval("课程名称")%>
-                                                        </a>--%>
+                                                <%#Eval("课程名称")%>
                                                 <div align="center">
-                                                    <asp:Repeater ID="rptJPKC" runat="server" DataSourceID="odsJPKC" OnItemCommand="rptJPKC_ItemCommand">
+                                                    <asp:Repeater ID="rptJPKC" runat="server" DataSourceID="odsMooc" 
+                                                        OnItemCommand="rptJPKC_ItemCommand">
                                                         <HeaderTemplate>
                                                             <table width="95%">
                                                         </HeaderTemplate>
                                                         <ItemTemplate>
-                                                            <tr>
-                                                                <td width="100%" style="font-size: small">
-                                                                    <%-- <a href='KC/KCinfo.aspx?KCID=<%#Eval("课程代码")%>'> <%#Eval("课程名称")%>
-                                                        </a>--%><center>
-                                                            <asp:LinkButton ID="LinkButton1" Width="100%" runat="server" BorderColor="#6B8E23"
-                                                                BorderWidth="1px" BackColor="#D9D9D9" CommandArgument='<%#Eval("课程代码")%>' ForeColor="#333333"
-                                                                Height="18px"><%#Eval("课程名称")%></asp:LinkButton></center>
-                                                                </td>
-                                                            </tr>
+                                                           
                                                         </ItemTemplate>
                                                         <FooterTemplate>
                                                             <tr>
                                                                 <td width="100%" style="font-size: small">
                                                                     <center>
                                                                         <asp:LinkButton ID="LinkButton1" Width="100%" runat="server" BorderColor="#6B8E23"
-                                                                            BorderWidth="1px" BackColor="#D9D9D9" PostBackUrl='~/KC/JPKFCourse.aspx' ForeColor="#333333"
+                                                                            BorderWidth="1px" BackColor="#D9D9D9" PostBackUrl='x.hubu.edu.cn' ForeColor="#333333"
                                                                             Height="18px">更多>></asp:LinkButton></center>
                                                                 </td>
                                                             </tr>
@@ -323,7 +313,8 @@
                                                     <b class="b4"></b><b class="b2"></b><b class="b3"></b><b class="b2"></b><b class="b1">
                                                     </b>
                                                 </div>
-                                                <%#Eval("课程名称")%>
+                                                <%-- <a href='KC/KCinfo.aspx?KCID=<%#Eval("课程代码")%>'> <%#Eval("课程名称")%>
+                                                        </a>--%>
                                                 <div align="center">
                                                     <asp:Repeater ID="rptTSKC" runat="server" DataSourceID="odsTSKC" OnItemCommand="rptTSKC_ItemCommand">
                                                         <HeaderTemplate>
@@ -488,8 +479,12 @@
                 <asp:Parameter Name="Original_课程代码" Type="String" />
             </UpdateParameters>
         </asp:ObjectDataSource>
-        <asp:ObjectDataSource ID="odsJPKC" runat="server" OldValuesParameterFormatString="original_{0}"
-            SelectMethod="GetJPKC" TypeName="MainDataSetTableAdapters.TA_课程信息表TableAdapter">
+        <asp:ObjectDataSource ID="odsMooc" runat="server" OldValuesParameterFormatString="original_{0}"
+            SelectMethod="GetDataByCatID" 
+            TypeName="ImageTableAdapters.TA_栏目图片表TableAdapter">
+            <SelectParameters>
+                <asp:Parameter DefaultValue="1" Name="id" Type="Object" />
+            </SelectParameters>
         </asp:ObjectDataSource>
         <asp:ObjectDataSource ID="odsTSKC" runat="server" OldValuesParameterFormatString="original_{0}"
             SelectMethod="GetTSKC" TypeName="MainDataSetTableAdapters.TA_课程信息表TableAdapter">

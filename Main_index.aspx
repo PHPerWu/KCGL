@@ -5,13 +5,21 @@
 <%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
     <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-   <title>首页</title>
+        <title>首页</title>
    <link href="Styles/homepage.css" rel="stylesheet" type="text/css" />
    <style>
         .hide
         {
             display:none;
             }
+        .more
+        {
+            width:100% ;
+            color:#000 !important;
+            border:1px solid #6B8E23; 
+            background-color:#D9D9D9;
+            }
+ 
    </style>
    
    <script type="text/javascript">
@@ -104,9 +112,7 @@
                                                                         <div><a href="<%#Eval("图片链接") %>"><img alt="" src="image/<%#Eval("图片名称") %>" style="width: 230px;height:200px;"  /></a></div>
                                                                      </ItemTemplate>
                                                         </asp:Repeater>
-                                                            <%-- <div id="divrmkc">
-                                                        
-                                                    </div>--%>
+                                                            
                                                      </div>
                                                         
                                      </div>
@@ -270,119 +276,101 @@
                                                 </div>
                                             </td>
                                             <td width="25%" valign="top">
-                                                <div class="pillar">
-                                                    <b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b2"></b><b class="b4">
-                                                    </b>
-                                                    <div class="boxcontent">
-                                                        <center>
-                                                            <b><a style="color: white" href="KC/JPKFCourse.aspx">精品开放课程</a></b></center>
-                                                    </div>
-                                                    <b class="b4"></b><b class="b2"></b><b class="b3"></b><b class="b2"></b><b class="b1">
-                                                    </b>
-                                                </div>
-                                                <%#Eval("课程名称")%>
-                                                <div align="center">
+                                                
                                                     <asp:Repeater ID="rptJPKC" runat="server" DataSourceID="odsMooc" 
                                                         OnItemCommand="rptJPKC_ItemCommand">
-                                                        <HeaderTemplate>
-                                                            <table width="95%">
-                                                        </HeaderTemplate>
+                                                        
                                                         <ItemTemplate>
-                                                           
-                                                        </ItemTemplate>
-                                                        <FooterTemplate>
+                                                         <div class="pillar">
+                                                                    <b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b2"></b><b class="b4">
+                                                                    </b>
+                                                                    <div class="boxcontent">
+                                                                        <center>
+                                                                            <b><a style="color: white" href="http://<%#Eval("栏目链接") %>"><%#Eval("栏目名称")%></a></b></center>
+                                                                    </div>
+                                                                    <b class="b4"></b><b class="b2"></b><b class="b3"></b><b class="b2"></b><b class="b1">
+                                                                    </b>
+                                                                </div>
+                                                                
+                                                                <div align="center">
+                                                            <table width="95%">
+                                                           <a href="<%#Eval("图片链接") %>"><img alt="" src="image/<%#Eval("图片名称") %>" style="width: 220px;height:192px;"  /></a>
+                                                       
+                                                        
                                                             <tr>
                                                                 <td width="100%" style="font-size: small">
                                                                     <center>
-                                                                        <asp:LinkButton ID="LinkButton1" Width="100%" runat="server" BorderColor="#6B8E23"
-                                                                            BorderWidth="1px" BackColor="#D9D9D9" PostBackUrl='x.hubu.edu.cn' ForeColor="#333333"
-                                                                            Height="18px">更多>></asp:LinkButton></center>
+                                                                        <a href="<%#Eval("栏目链接") %>"><div class="more">更多>></div></a></center>
                                                                 </td>
                                                             </tr>
-                                                            </table><asp:Label ID="lblNull" runat="server" Text="" Visible='<%#bool.Parse((rptJPKC.Items.Count==0).ToString()) %>'></asp:Label></FooterTemplate>
+                                                            </table><asp:Label ID="lblNull" runat="server" Text="" Visible='<%#bool.Parse((rptJPKC.Items.Count==0).ToString()) %>'></asp:Label>
+                                                             </ItemTemplate>
                                                     </asp:Repeater>
                                             </td>
                                             <td width="25%" valign="top">
-                                                <div class="pillar">
-                                                    <b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b2"></b><b class="b4">
-                                                    </b>
-                                                    <div class="boxcontent">
-                                                        <center>
-                                                            <b><a style="color: white" href="KC/TSJYCourse.aspx">通识教育选修课</a></b></center>
-                                                    </div>
-                                                    <b class="b4"></b><b class="b2"></b><b class="b3"></b><b class="b2"></b><b class="b1">
-                                                    </b>
-                                                </div>
-                                                <%-- <a href='KC/KCinfo.aspx?KCID=<%#Eval("课程代码")%>'> <%#Eval("课程名称")%>
-                                                        </a>--%>
+                                                
+                                                <%#Eval("课程名称")%>
                                                 <div align="center">
-                                                    <asp:Repeater ID="rptTSKC" runat="server" DataSourceID="odsTSKC" OnItemCommand="rptTSKC_ItemCommand">
-                                                        <HeaderTemplate>
+                                                    <asp:Repeater ID="rptSPGK" runat="server" DataSourceID="odsSPGK" 
+                                                        OnItemCommand="rptTSKC_ItemCommand">
+                                                         <ItemTemplate>
+                                                         <div class="pillar">
+                                                                    <b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b2"></b><b class="b4">
+                                                                    </b>
+                                                                    <div class="boxcontent">
+                                                                        <center>
+                                                                            <b><a style="color: white" href="http://<%#Eval("栏目链接") %>"><%#Eval("栏目名称")%></a></b></center>
+                                                                    </div>
+                                                                    <b class="b4"></b><b class="b2"></b><b class="b3"></b><b class="b2"></b><b class="b1">
+                                                                    </b>
+                                                                </div>
+                                                                
+                                                                <div align="center">
                                                             <table width="95%">
-                                                        </HeaderTemplate>
-                                                        <ItemTemplate>
-                                                            <tr>
-                                                                <td width="100%" style="font-size: small">
-                                                                    <%--<a href='KC/KCinfo.aspx?KCID=<%#Eval("课程代码")%>'> <%#Eval("课程名称")%>
-                                                        </a>>--%><center>
-                                                            <asp:LinkButton ID="LinkButton1" Width="100%" runat="server" BorderColor="#6B8E23"
-                                                                BorderWidth="1px" BackColor="#D9D9D9" CommandArgument='<%#Eval("课程代码")%>' ForeColor="#333333"
-                                                                Height="18px"><%#Eval("课程名称")%></asp:LinkButton></center>
-                                                                </td>
-                                                            </tr>
-                                                        </ItemTemplate>
-                                                        <FooterTemplate>
+                                                           <a href="<%#Eval("图片链接") %>"><img alt="" src="image/<%#Eval("图片名称") %>" style="width: 220px;height:192px;"  /></a>
+                                                       
+                                                        
                                                             <tr>
                                                                 <td width="100%" style="font-size: small">
                                                                     <center>
-                                                                        <asp:LinkButton ID="LinkButton1" Width="100%" runat="server" BorderColor="#6B8E23"
-                                                                            BorderWidth="1px" BackColor="#D9D9D9" PostBackUrl='~/KC/TSJYCourse.aspx' ForeColor="#333333"
-                                                                            Height="18px">更多>></asp:LinkButton></center>
+                                                                        <a href="<%#Eval("栏目链接") %>"><div class="more">更多>></div></a></center>
                                                                 </td>
                                                             </tr>
-                                                            </table><asp:Label ID="lblNull" runat="server" Text="" Visible='<%#bool.Parse((rptTSKC.Items.Count==0).ToString()) %>'></asp:Label></FooterTemplate>
+                                                            </table><asp:Label ID="lblNull" runat="server" Text="" Visible='<%#bool.Parse((rptJPKC.Items.Count==0).ToString()) %>'></asp:Label>
+                                                             </ItemTemplate>
                                                     </asp:Repeater>
                                                 </div>
                                             </td>
                                             <td width="25%" valign="top">
-                                                <div class="pillar">
-                                                    <b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b2"></b><b class="b4">
-                                                    </b>
-                                                    <div class="boxcontent">
-                                                        <center>
-                                                            <b><a style="color: white" href="KC/XWYZCourse.aspx">校外优质课程</a></b></center>
-                                                    </div>
-                                                    <b class="b4"></b><b class="b2"></b><b class="b3"></b><b class="b2"></b><b class="b1">
-                                                    </b>
-                                                </div>
+                                                
                                                 <div align="center">
-                                                    <asp:Repeater ID="rptJPSP" runat="server" DataSourceID="odsJPSP" OnItemCommand="rptJPSP_ItemCommand">
-                                                        <HeaderTemplate>
+                                                    <asp:Repeater ID="rptZYGX" runat="server" DataSourceID="odsZYGX" 
+                                                        OnItemCommand="rptJPSP_ItemCommand">
+                                                       <ItemTemplate>
+                                                         <div class="pillar">
+                                                                    <b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b2"></b><b class="b4">
+                                                                    </b>
+                                                                    <div class="boxcontent">
+                                                                        <center>
+                                                                            <b><a style="color: white" href="http://<%#Eval("栏目链接") %>"><%#Eval("栏目名称")%></a></b></center>
+                                                                    </div>
+                                                                    <b class="b4"></b><b class="b2"></b><b class="b3"></b><b class="b2"></b><b class="b1">
+                                                                    </b>
+                                                                </div>
+                                                                
+                                                                <div align="center">
                                                             <table width="95%">
-                                                        </HeaderTemplate>
-                                                        <ItemTemplate>
+                                                           <a href="<%#Eval("图片链接") %>"><img alt="" src="image/<%#Eval("图片名称") %>" style="width: 220px;height:192px;"  /></a>
+                                                       
+                                                        
                                                             <tr>
                                                                 <td width="100%" style="font-size: small">
                                                                     <center>
-                                                                        <asp:LinkButton ID="LinkButton1" Width="100%" runat="server" BorderColor="#6B8E23"
-                                                                            BorderWidth="1px" BackColor="#D9D9D9" CommandArgument='<%#Eval("优质课程代码")%>' ForeColor="#333333"
-                                                                            Height="18px"><%#Eval("优质课程名称")%></asp:LinkButton>
-                                                                        <%--<asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%#Eval("优质课程网址") %>' style=" border-color:#6B8E23; border-width:1px; background-color:#7bba35; color:#333333; width:100%"><%#Eval("优质课程名称")%></asp:HyperLink>
-                                                                <a href='<%#Eval("优质课程网址") %>' style=" border-color:#6B8E23; border-width:1px; background-color:#7bba35; color:Black; width:150px"><%#Eval("优质课程名称")%></a>--%>
-                                                                    </center>
+                                                                        <a href="<%#Eval("栏目链接") %>"><div class="more">更多>></div></a></center>
                                                                 </td>
                                                             </tr>
-                                                        </ItemTemplate>
-                                                        <FooterTemplate>
-                                                            <tr>
-                                                                <td width="100%" style="font-size: small">
-                                                                    <center>
-                                                                        <asp:LinkButton ID="LinkButton1" Width="100%" runat="server" BorderColor="#6B8E23"
-                                                                            BorderWidth="1px" BackColor="#D9D9D9" PostBackUrl='~/KC/XWYZCourse.aspx' ForeColor="#333333"
-                                                                            Height="18px">更多>></asp:LinkButton></center>
-                                                                </td>
-                                                            </tr>
-                                                            </table><asp:Label ID="lblNull" runat="server" Text="" Visible='<%#bool.Parse((rptJPSP.Items.Count==0).ToString()) %>'></asp:Label></FooterTemplate>
+                                                            </table><asp:Label ID="lblNull" runat="server" Text="" Visible='<%#bool.Parse((rptJPKC.Items.Count==0).ToString()) %>'></asp:Label>
+                                                             </ItemTemplate>
                                                     </asp:Repeater>
                                                 </div>
                                             </td>
@@ -480,17 +468,28 @@
             </UpdateParameters>
         </asp:ObjectDataSource>
         <asp:ObjectDataSource ID="odsMooc" runat="server" OldValuesParameterFormatString="original_{0}"
-            SelectMethod="GetDataByCatID" 
-            TypeName="ImageTableAdapters.TA_栏目图片表TableAdapter">
+            SelectMethod="GetData" 
+            TypeName="ImageTableAdapters.GETDATABYCATIDTableAdapter">
             <SelectParameters>
-                <asp:Parameter DefaultValue="1" Name="id" Type="Object" />
+                <asp:Parameter DefaultValue="1" Name="P_栏目ID" Type="Decimal" />
+                <asp:Parameter Direction="Output" Name="P_RESULT" Type="Object" />
             </SelectParameters>
         </asp:ObjectDataSource>
-        <asp:ObjectDataSource ID="odsTSKC" runat="server" OldValuesParameterFormatString="original_{0}"
-            SelectMethod="GetTSKC" TypeName="MainDataSetTableAdapters.TA_课程信息表TableAdapter">
+        <asp:ObjectDataSource ID="odsSPGK" runat="server" OldValuesParameterFormatString="original_{0}"
+            SelectMethod="GetData" 
+            TypeName="ImageTableAdapters.GETDATABYCATIDTableAdapter">
+            <SelectParameters>
+                <asp:Parameter DefaultValue="2" Name="P_栏目ID" Type="Decimal" />
+                <asp:Parameter Direction="Output" Name="P_RESULT" Type="Object" />
+            </SelectParameters>
         </asp:ObjectDataSource>
-        <asp:ObjectDataSource ID="odsJPSP" runat="server" OldValuesParameterFormatString="original_{0}"
-            SelectMethod="Gettop5Data" TypeName="DMDataSetTableAdapters.DM_优质课程TableAdapter">
+        <asp:ObjectDataSource ID="odsZYGX" runat="server" OldValuesParameterFormatString="original_{0}"
+            SelectMethod="GetData" 
+            TypeName="ImageTableAdapters.GETDATABYCATIDTableAdapter">
+            <SelectParameters>
+                <asp:Parameter DefaultValue="3" Name="P_栏目ID" Type="Decimal" />
+                <asp:Parameter Direction="Output" Name="P_RESULT" Type="Object" />
+            </SelectParameters>
         </asp:ObjectDataSource>
     </div>
    </asp:Content>

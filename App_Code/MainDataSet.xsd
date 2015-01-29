@@ -1475,6 +1475,59 @@ WHERE (课程代码 = :Original_课程代码)</CommandText>
               <Mapping SourceColumn="不喜欢" DataSetColumn="不喜欢" />
             </Mappings>
             <Sources>
+              <DbSource ConnectionRef="ConnectionString1 (Web.config)" DbObjectName="KCGL.TA_课程信息表" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetSPGK" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetSPGK" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetSPGK" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   课程代码, 开课学期, 课程性质, 课程类别, 先修课程, 使用教材, 双学位课程, 总学时, 讲授学时, 实践学时, 
+                精品视频公开课, 精品课程网址, 开课学院, 课程名称, 后续课程, 课程学分, 考核方式, 教学方式, 主要参考书目, 教学计划, 
+                教学大纲, 精品资源共享课, 评分, 已评分人数, 实验学时, 课程点击量, 课程级别, 面向对象, 创建时间, 创建人, 课程描述, 
+                立项级别, 立项年度, 课程负责人, 课程图片, 喜欢, 一般喜欢, 不喜欢
+FROM      KCGL."TA_课程信息表"
+WHERE   (精品视频公开课 = 1)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ConnectionString1 (Web.config)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy1" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByZYGX" GeneratorSourceName="FillBy1" GetMethodModifier="Public" GetMethodName="GetDataByZYGX" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByZYGX" UserSourceName="FillBy1">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT 主要参考书目, 使用教材, 先修课程, 创建人, 创建时间, 双学位课程, 后续课程, 实践学时, 实验学时, 已评分人数, 开课学期, 开课学院, 总学时, 教学大纲, 教学方式, 教学计划, 精品视频公开课, 精品课程网址, 精品资源共享课, 考核方式, 讲授学时, 评分, 课程代码, 课程名称, 课程学分, 课程性质, 课程点击量, 课程类别, 课程级别, 面向对象,课程图片,
+(SELECT T1.代码含义
+FROM DM_立项级别 T1
+WHERE T1.代码ID=立项级别 ) AS 立项级别,
+立项年度,
+课程负责人,
+(SELECT T2.学院名称
+FROM TA_学院信息表 T2
+WHERE T2.学院ID=开课学院) AS 开课学院名称
+FROM      (SELECT   t .*
+                 FROM   KCGL.TA_课程信息表  t
+                 ORDER BY t .课程点击量 DESC)
+WHERE  精品资源共享课 = 1 </CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ConnectionString1 (Web.config)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy2" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBySPGK" GeneratorSourceName="FillBy2" GetMethodModifier="Public" GetMethodName="GetDataBySPGK" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBySPGK" UserSourceName="FillBy2">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT 主要参考书目, 使用教材, 先修课程, 创建人, 创建时间, 双学位课程, 后续课程, 实践学时, 实验学时, 已评分人数, 开课学期, 开课学院, 总学时, 教学大纲, 教学方式, 教学计划, 精品视频公开课, 精品课程网址, 精品资源共享课, 考核方式, 讲授学时, 评分, 课程代码, 课程名称, 课程学分, 课程性质, 课程点击量, 课程类别, 课程级别, 面向对象,课程图片,
+(SELECT T1.代码含义
+FROM DM_立项级别 T1
+WHERE T1.代码ID=立项级别 ) AS 立项级别,
+立项年度,
+课程负责人,
+(SELECT T2.学院名称
+FROM TA_学院信息表 T2
+WHERE T2.学院ID=开课学院) AS 开课学院名称
+FROM      (SELECT   t .*
+                 FROM   KCGL.TA_课程信息表  t
+                 ORDER BY t .课程点击量 DESC)
+WHERE   精品视频公开课=1</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
               <DbSource ConnectionRef="ConnectionString1 (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByAllCollege" GetMethodModifier="Public" GetMethodName="GetDataByAllCollege" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByAllCollege" UserSourceName="GetDataByAllCollege">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
@@ -1662,12 +1715,13 @@ WHERE   ROWNUM&lt; 9 and (精品资源共享课 = 1 or 精品视频公开课=1)<
               <DbSource ConnectionRef="ConnectionString1 (Web.config)" DbObjectName="KCGL.TA_课程信息表" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetKCByYX" GetMethodModifier="Public" GetMethodName="GetKCByYX" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetKCByYX" UserSourceName="GetKCByYX">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT  distinct kc.课程代码, kc.开课学期, kc.课程性质, kc.课程类别, kc.先修课程, kc.使用教材, kc.双学位课程, kc.总学时, kc.讲授学时, 
-                kc.实践学时, kc.精品视频公开课, kc.精品课程网址, kc.开课学院, kc.课程名称, kc.后续课程, kc.课程学分, kc.考核方式, 
-                kc.教学方式, kc.主要参考书目,  kc.精品资源共享课, kc.评分, kc.已评分人数, kc.实验学时, 
-                kc.课程点击量, kc.课程级别, kc.面向对象, kc.创建时间, kc.创建人
-FROM      KCGL."TA_课程信息表" kc 
-WHERE  kc.开课学院=:YX</CommandText>
+                    <CommandText>SELECT DISTINCT 
+                课程代码, 开课学期, 课程性质, 课程类别, 先修课程, 使用教材, 双学位课程, 总学时, 讲授学时, 实践学时, 
+                精品视频公开课, 精品课程网址, 开课学院, 课程名称, 后续课程, 课程学分, 考核方式, 教学方式, 主要参考书目, 
+                精品资源共享课, 评分, 已评分人数, 实验学时, 课程点击量, 课程级别, 面向对象, 创建时间, 创建人
+FROM      KCGL."TA_课程信息表" kc
+WHERE   (开课学院 = :YX)
+ORDER BY 精品课程网址</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="true" AutogeneratedName="YX" ColumnName="开课学院" DataSourceName="KCGL.TA_课程信息表" DataTypeServer="VARCHAR2(50)" DbType="String" Direction="Input" ParameterName=":YX" Precision="0" ProviderType="Varchar2" Scale="0" Size="50" SourceColumn="开课学院" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
@@ -1684,7 +1738,7 @@ WHERE  kc.开课学院=:YX</CommandText>
 FROM      KCGL."TA_课程信息表" kc INNER JOIN
                 KCGL."TA_院系课程关系表" yk ON kc.课程代码 = yk.课程代码
 WHERE   (yk.适用学院 = :YX) OR
-                (yk.适用专业 = :ZY)</CommandText>
+                (yk.适用专业 = :ZY) order by"精品课程网址"</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="YX" ColumnName="适用学院" DataSourceName="KCGL.TA_院系课程关系表" DataTypeServer="VARCHAR2(50)" DbType="String" Direction="Input" ParameterName=":YX" Precision="0" ProviderType="Varchar2" Scale="0" Size="50" SourceColumn="适用学院" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="ZY" ColumnName="适用专业" DataSourceName="KCGL.TA_院系课程关系表" DataTypeServer="VARCHAR2(50)" DbType="String" Direction="Input" ParameterName=":ZY" Precision="0" ProviderType="Varchar2" Scale="0" Size="50" SourceColumn="适用专业" SourceColumnNullMapping="false" SourceVersion="Current" />

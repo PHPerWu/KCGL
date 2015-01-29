@@ -7,6 +7,19 @@
 
       <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
    <title>所有课程</title>
+   <style>
+        .linkbutton
+            {
+                height:35px;
+                line-height:35px;
+                border:#6B8E23 1px solid;
+                
+                background-color:#A2CD5A;
+                font-size:13px;
+                width:100%;
+
+                }
+   </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div>
@@ -72,12 +85,11 @@
                                                         <dx:ASPxDataView ID="dvKC" runat="server" ColumnCount="6" ToolTip="点击课程查看详情" Width="100%"
                                                             EmptyDataText="暂无相关课程" DataSourceID="odsKC" Theme="Glass">
                                                             <ItemTemplate>
-                                                                <asp:LinkButton ID="LinkButton1" runat="server" Text='<%# Eval("课程名称").ToString().Length>12?Eval("课程名称").ToString().Substring(0,12):Eval("课程名称") %>'
-                                                                    Height="35px" Style="line-height:35px;" ToolTip='<%# Eval("课程名称")%>'  BorderColor="#6B8E23"
-                                                                    ForeColor="black" BorderWidth="1px" BackColor="#A2CD5A" Font-Size="13px" CssClass="lbxy"
-                                                                    PostBackUrl='<%# "~/KC/PTKCInfo.aspx?KCID=" + Eval("课程代码") %>' Width="100%" Font-Strikeout="False"
-                                                                    Font-Underline="False" >
-                                                                </asp:LinkButton>
+                                                            <a href="<%# Eval("精品课程网址")%>">
+                                                                <div class="linkbutton">  <%# Eval("课程名称").ToString().Length>12?Eval("课程名称").ToString().Substring(0,12):Eval("课程名称") %>
+                                                                    
+                                                                </div>
+                                                            </a>
                                                             </ItemTemplate>
                                                             <SettingsFlowLayout ItemsPerPage="16" />
                                                             <SettingsTableLayout ColumnCount="6" RowsPerPage="10" />
@@ -96,6 +108,7 @@
                                                             <EmptyDataStyle ForeColor="Black">
                                                             </EmptyDataStyle>
                                                         </dx:ASPxDataView>
+
                                                     </div>
                                                 </div>
                                             </td>

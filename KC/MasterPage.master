@@ -63,7 +63,8 @@
                     <div class="function">
                         <a href="#" onclick="this.style.behavior='url(#default#homepage)'; this.setHomePage(document.location.href);event.returnValue=false;">
                             设为首页</a>&nbsp;&nbsp;|&nbsp; <a href="Javascript:window.external.addFavorite(document.location.href,document.title)">
-                                加入收藏</a>
+                                加入收藏</a>&nbsp;&nbsp;|&nbsp; <a href="../Login.aspx">
+                                管理登录</a>
                     </div>
                     <div class="search">
                     <table>

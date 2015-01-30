@@ -7,6 +7,8 @@
 
       <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
    <title>所有课程</title>
+
+ 
    <style>
         .linkbutton
             {
@@ -17,15 +19,19 @@
                 background-color:#A2CD5A;
                 font-size:13px;
                 width:100%;
-
-                }
+            }
+        a :visited
+        {
+            color:#000 !important;
+            }
+                
    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div>
         <asp:ScriptManager ID="ScriptManager1" runat="server">
         </asp:ScriptManager>
-
+        <a id="test" href="fdd">fdf</a>
             <div style="height: 2px">
                 &nbsp;</div>
             <div class="body">
@@ -85,7 +91,8 @@
                                                         <dx:ASPxDataView ID="dvKC" runat="server" ColumnCount="6" ToolTip="点击课程查看详情" Width="100%"
                                                             EmptyDataText="暂无相关课程" DataSourceID="odsKC" Theme="Glass">
                                                             <ItemTemplate>
-                                                            <a href="<%# Eval("精品课程网址")%>">
+                                                            <a class="classHref" href="<%# Eval("精品课程网址")%>" >
+                  
                                                                 <div class="linkbutton">  <%# Eval("课程名称").ToString().Length>12?Eval("课程名称").ToString().Substring(0,12):Eval("课程名称") %>
                                                                     
                                                                 </div>

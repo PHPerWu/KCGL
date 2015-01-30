@@ -22,14 +22,15 @@ public partial class KC_TSJYCourse : System.Web.UI.Page
         //var info = adapter.GetXXKCXXByKCDM(e.CommandArgument.ToString());
         MainDataSetTableAdapters.VI_KCINFOTableAdapter adapter = new VI_KCINFOTableAdapter();
         var info = adapter.GetKCInfoByKCDM(e.CommandArgument.ToString());
-        if (info[0]["精品视频公开课"].ToString() == "1" || info[0]["精品资源共享课"].ToString() == "1")
-        {
-            Response.Redirect("~/KC/JPKCInfo.aspx?KCID=" + e.CommandArgument);
-        }
-        else
-        {
-            Response.Redirect("~/KC/PTKCInfo.aspx?KCID=" + e.CommandArgument);
-        }
+        Response.Redirect(info[0]["精品课程网址"].ToString());
+        //if (info[0]["精品视频公开课"].ToString() == "1" || info[0]["精品资源共享课"].ToString() == "1")
+        //{
+        //    Response.Redirect("~/KC/JPKCInfo.aspx?KCID=" + e.CommandArgument);
+        //}
+        //else
+        //{
+        //    Response.Redirect("~/KC/PTKCInfo.aspx?KCID=" + e.CommandArgument);
+        //}
     }
     
 }

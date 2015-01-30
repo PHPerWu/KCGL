@@ -64,14 +64,15 @@ public partial class KC_SearchResult : System.Web.UI.Page
         MainDataSetTableAdapters.VI_KCINFOTableAdapter adapter = new VI_KCINFOTableAdapter();
         string index = Convert.ToString(e.CommandArgument);
         var info = adapter.GetKCInfoByKCDM(e.CommandArgument.ToString());
-        if (info[0]["精品视频公开课"].ToString() == "1" || info[0]["精品资源共享课"].ToString() == "1")
-        {
-            Response.Redirect("~/KC/JPKCInfo.aspx?KCID=" + e.CommandArgument);
-        }
-        else
-        {
-            Response.Redirect("~/KC/PTKCInfo.aspx?KCID=" + e.CommandArgument);
-        }
+        Response.Redirect(info[0]["精品课程网址"].ToString());
+        //if (info[0]["精品视频公开课"].ToString() == "1" || info[0]["精品资源共享课"].ToString() == "1")
+        //{
+        //    Response.Redirect("~/KC/JPKCInfo.aspx?KCID=" + e.CommandArgument);
+        //}
+        //else
+        //{
+        //    Response.Redirect("~/KC/PTKCInfo.aspx?KCID=" + e.CommandArgument);
+        //}
     }
 
 }

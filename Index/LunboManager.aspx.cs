@@ -120,13 +120,7 @@ public partial class CollegeManager_TeacherFamous : System.Web.UI.Page
     }
     protected void btnUpload2_Click(object sender, EventArgs e)
     {
-        //string imagePath = "";
-        //if (upload2.HasFile)
-        //{
-        //    imagePath = @"../teacherImage/" + upload2.FileName;
-        //    upload2.SaveAs(Server.MapPath(@"../teacherImage/" + upload2.FileName));
-        //    Response.Write("<script>alert('修改成功')</script>");
-        //}
+     
 
         //Response.Write("<script>alert('修改成功')</script>");
         string userIP = GetClientIP();

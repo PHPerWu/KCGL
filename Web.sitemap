@@ -32,5 +32,11 @@
     <siteMapNode url="~/SysManager/专业表.aspx" title="专业表" description="专业表" roles="系统管理员,教务处管理员" />
     </siteMapNode>
 
+    <siteMapNode url="" title="首页管理" description="首页管理" roles="教务处管理员">
+    <siteMapNode url="~/Index/NavManager.aspx" title="导航管理" description="导航管理" roles="教务处管理员"/>
+    <siteMapNode url="~/Index/LunboManager.aspx" title="轮播图管理" description="轮播图管理" roles="教务处管理员"/>
+    <siteMapNode url="~/Index/ImageManager.aspx" title="区域图片管理" description="区域图片管理" roles="教务处管理员"/>
+    </siteMapNode>
+      
   </siteMapNode>
 </siteMap>

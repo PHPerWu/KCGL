@@ -94,7 +94,7 @@ public partial class CollegeManager_TeacherFamous : System.Web.UI.Page
             {
                 if (fileExtension == allowedExtensions[i])
                 {
-                    Talunbo.UpdateLunbo(upload1.FileName, time, userIP, txtUpload1.Text, "B13F812B433C44D693A280EE5E74F785");
+                    Talunbo.UpdateLunbo(upload1.FileName, time, userIP, hide1.Text, "1511D4BB078D425ABF053CFCF4D094C2");
                  
                     fileOK = true;
                 }
@@ -105,8 +105,8 @@ public partial class CollegeManager_TeacherFamous : System.Web.UI.Page
             try
             {
                 upload1.SaveAs(path + upload1.FileName);
-                Response.Write("<script>alert('修改成功')</script>");
-
+               // Response.Write("<script>alert('修改成功')</script>");
+                ScriptManager.RegisterStartupScript(this, GetType(), "", "showTXT1(" + Talunbo.GetData().Rows[0]["图片链接"].ToString() + ");show(lunbo1,'" + "../image/lunbo/" + Talunbo.GetData().Rows[0]["图片名称"].ToString() + "');", true);
             }
             catch (Exception ex)
             {
@@ -145,8 +145,8 @@ public partial class CollegeManager_TeacherFamous : System.Web.UI.Page
             {
                 if (fileExtension == allowedExtensions[i])
                 {
-                    Talunbo.UpdateLunbo(upload2.FileName, time, userIP, txtUpload2.Text, "1DB3CC8E5E9F4A05B70468D56F91B765");
-                    // lunbo.UpdateLunbo("5656", time, userIP, txtUpload2.Text, "B0A69EABD16B2F5CB88BF65A0EC0202F");
+                    Talunbo.UpdateLunbo(upload2.FileName, time, userIP, hide2.Text, "1DB3CC8E5E9F4A05B70468D56F91B765");
+                    // lunbo.UpdateLunbo("5656", time, userIP, hide2.Text, "B0A69EABD16B2F5CB88BF65A0EC0202F");
                     fileOK = true;
                 }
             }
@@ -156,8 +156,8 @@ public partial class CollegeManager_TeacherFamous : System.Web.UI.Page
             try
             {
                 upload2.SaveAs(path + upload2.FileName);
-                Response.Write("<script>alert('修改成功')</script>");
-
+                //Response.Write("<script>alert('修改成功')</script>");
+                ScriptManager.RegisterStartupScript(this, GetType(), "", "showTXT2(" + Talunbo.GetData().Rows[1]["图片链接"].ToString() + ");show(lunbo2,'" + "../image/lunbo/" +Talunbo.GetData().Rows[1]["图片名称"].ToString() + "');", true);
             }
             catch (Exception ex)
             {
@@ -202,7 +202,7 @@ public partial class CollegeManager_TeacherFamous : System.Web.UI.Page
             {
                 if (fileExtension == allowedExtensions[i])
                 {
-                    Talunbo.UpdateLunbo(upload3.FileName, time, userIP, txtUpload3.Text, "1511D4BB078D425ABF053CFCF4D094C2");
+                    Talunbo.UpdateLunbo(upload3.FileName, time, userIP, hide3.Text, "B0A69EABD16B4F5CB88BF65A0EC0403F");
                     // lunbo.UpdateLunbo("5656", time, userIP, txtUpload3.Text, "B0A69EABD16B3F5CB88BF65A0EC0303F");
                     fileOK = true;
                 }
@@ -213,8 +213,8 @@ public partial class CollegeManager_TeacherFamous : System.Web.UI.Page
             try
             {
                 upload3.SaveAs(path + upload3.FileName);
-                Response.Write("<script>alert('修改成功')</script>");
-
+                //Response.Write("<script>alert('修改成功')</script>");
+                ScriptManager.RegisterStartupScript(this, GetType(), "", "showTXT3(" + Talunbo.GetData().Rows[2]["图片链接"].ToString() + ");show(lunbo3,'" + "../image/lunbo/" + Talunbo.GetData().Rows[2]["图片名称"].ToString() + "');", true);
             }
             catch (Exception ex)
             {
@@ -259,7 +259,7 @@ public partial class CollegeManager_TeacherFamous : System.Web.UI.Page
             {
                 if (fileExtension == allowedExtensions[i])
                 {
-                    Talunbo.UpdateLunbo(upload4.FileName, time, userIP, txtUpload4.Text, "B0A69EABD16B4F5CB88BF65A0EC0403F");
+                    Talunbo.UpdateLunbo(upload4.FileName, time, userIP, hide4.Text, "B13F812B433C44D693A280EE5E74F785");
                    // lunbo.UpdateLunbo("5656", time, userIP, txtUpload4.Text, "B0A69EABD16B4F5CB88BF65A0EC0403F");
                     fileOK = true;
                 }
@@ -270,8 +270,8 @@ public partial class CollegeManager_TeacherFamous : System.Web.UI.Page
             try
             {
                 upload4.SaveAs(path + upload4.FileName);
-                Response.Write("<script>alert('修改成功')</script>");
-               
+                //Response.Write("<script>alert('修改成功')</script>");
+                ScriptManager.RegisterStartupScript(this, GetType(), "", "showTXT4(" + Talunbo.GetData().Rows[3]["图片链接"].ToString() + ");show(lunbo4,'" + "../image/lunbo/" + Talunbo.GetData().Rows[3]["图片名称"].ToString() + "');", true);
             }
             catch (Exception ex)
             {

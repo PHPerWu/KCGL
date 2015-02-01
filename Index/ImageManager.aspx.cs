@@ -15,15 +15,14 @@ public partial class CollegeManager_TeacherFamous : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        TA_轮播图片表TableAdapter lunbo = new TA_轮播图片表TableAdapter();
-        txtUpload1.Text = lunbo.GetData().Rows[0]["图片链接"].ToString();
-        txtUpload2.Text = lunbo.GetData().Rows[1]["图片链接"].ToString();
-        txtUpload3.Text = lunbo.GetData().Rows[2]["图片链接"].ToString();
-        txtUpload4.Text = lunbo.GetData().Rows[3]["图片链接"].ToString();
-        lunbo1.ImageUrl = "~/image/lunbo/"+lunbo.GetData().Rows[0]["图片名称"].ToString();
-        lunbo2.ImageUrl = "~/image/lunbo/"+lunbo.GetData().Rows[1]["图片名称"].ToString();
-        lunbo3.ImageUrl = "~/image/lunbo/"+lunbo.GetData().Rows[2]["图片名称"].ToString();
-        lunbo4.ImageUrl = "~/image/lunbo/"+lunbo.GetData().Rows[3]["图片名称"].ToString();
+        TA_栏目图片表TableAdapter lunbo = new TA_栏目图片表TableAdapter();
+        txtUpload1.Text = lunbo.GetDataOrder().Rows[0]["图片链接"].ToString();
+        txtUpload2.Text = lunbo.GetDataOrder().Rows[1]["图片链接"].ToString();
+        txtUpload3.Text = lunbo.GetDataOrder().Rows[2]["图片链接"].ToString();
+        lunbo1.ImageUrl = "~/image/catImage/"+lunbo.GetDataOrder().Rows[0]["图片名称"].ToString();
+        lunbo2.ImageUrl = "~/image/catImage/"+lunbo.GetDataOrder().Rows[1]["图片名称"].ToString();
+        lunbo3.ImageUrl = "~/image/catImage/"+lunbo.GetDataOrder().Rows[2]["图片名称"].ToString();
+        
 
     }
     public static string GetClientIP()
@@ -79,12 +78,12 @@ public partial class CollegeManager_TeacherFamous : System.Web.UI.Page
         string userIP = GetClientIP();
         DateTime dt = DateTime.Now;
         string time = dt.ToString();
-        TA_轮播图片表TableAdapter Talunbo = new TA_轮播图片表TableAdapter();
+        TA_栏目图片表TableAdapter Talunbo = new TA_栏目图片表TableAdapter();
        
 
 
         bool fileOK = false;
-        string path = Server.MapPath("../image/lunbo/");
+        string path = Server.MapPath("../image/catImage/");
         if (upload1.HasFile)
         {
             String fileExtension = System.IO.Path.GetExtension(upload1.FileName).ToLower();
@@ -93,7 +92,8 @@ public partial class CollegeManager_TeacherFamous : System.Web.UI.Page
             {
                 if (fileExtension == allowedExtensions[i])
                 {
-                    Talunbo.UpdateLunbo(upload1.FileName, time, userIP, txtUpload1.Text, "B13F812B433C44D693A280EE5E74F785");
+                 
+                    Talunbo.UpdateCatImage(upload1.FileName, time.ToString(), userIP, hide1.Text,1);
                  
                     fileOK = true;
                 }
@@ -104,8 +104,9 @@ public partial class CollegeManager_TeacherFamous : System.Web.UI.Page
             try
             {
                 upload1.SaveAs(path + upload1.FileName);
-                Response.Write("<script>alert('修改成功')</script>");
-
+                //Response.Write("<script>alert('修改成功')</script>");
+                ScriptManager.RegisterStartupScript(this, GetType(), "", "showTXT1(" + Talunbo.GetDataOrder().Rows[0]["图片链接"].ToString() + ");show(lunbo1,'" + "../image/catImage/" + Talunbo.GetDataOrder().Rows[0]["图片名称"].ToString() + "');", true);
+                //ScriptManager.RegisterStartupScript(this, GetType(), "", "showTXT1("+txtUpload1.Text+");", true);
             }
             catch (Exception ex)
             {
@@ -119,23 +120,16 @@ public partial class CollegeManager_TeacherFamous : System.Web.UI.Page
     }
     protected void btnUpload2_Click(object sender, EventArgs e)
     {
-     
 
-        //Response.Write("<script>alert('修改成功')</script>");
         string userIP = GetClientIP();
         DateTime dt = DateTime.Now;
         string time = dt.ToString();
-        TA_轮播图片表TableAdapter Talunbo = new TA_轮播图片表TableAdapter();
-        //string imagePath = "";
+        TA_栏目图片表TableAdapter Talunbo = new TA_栏目图片表TableAdapter();
 
-        //imagePath = upload2.FileName;
-        //upload2.SaveAs(Server.MapPath(@"../teacherImage/" + upload2.FileName));
-
-        //Response.Write("<script>alert('修改成功')</script>");
 
 
         bool fileOK = false;
-        string path = Server.MapPath("../image/lunbo/");
+        string path = Server.MapPath("../image/catImage/");
         if (upload2.HasFile)
         {
             String fileExtension = System.IO.Path.GetExtension(upload2.FileName).ToLower();
@@ -144,8 +138,8 @@ public partial class CollegeManager_TeacherFamous : System.Web.UI.Page
             {
                 if (fileExtension == allowedExtensions[i])
                 {
-                    Talunbo.UpdateLunbo(upload2.FileName, time, userIP, txtUpload2.Text, "1DB3CC8E5E9F4A05B70468D56F91B765");
-                    // lunbo.UpdateLunbo("5656", time, userIP, txtUpload2.Text, "B0A69EABD16B2F5CB88BF65A0EC0202F");
+                    Talunbo.UpdateCatImage(upload2.FileName, time, userIP, hide2.Text, 2);
+
                     fileOK = true;
                 }
             }
@@ -155,8 +149,9 @@ public partial class CollegeManager_TeacherFamous : System.Web.UI.Page
             try
             {
                 upload2.SaveAs(path + upload2.FileName);
-                Response.Write("<script>alert('修改成功')</script>");
-
+                ScriptManager.RegisterStartupScript(this, GetType(), "", "showTXT2(" + Talunbo.GetDataOrder().Rows[1]["图片链接"].ToString() + ");show(lunbo2,'" + "../image/catImage/" + Talunbo.GetDataOrder().Rows[1]["图片名称"].ToString() + "');", true);
+                //Response.Write("<script>alert('修改成功')</script>");
+               // ScriptManager.RegisterStartupScript(this, GetType(), "", "showTXT2(txtUpload2.Text);", true);
             }
             catch (Exception ex)
             {
@@ -170,29 +165,16 @@ public partial class CollegeManager_TeacherFamous : System.Web.UI.Page
     }
     protected void btnUpload3_Click(object sender, EventArgs e)
     {
-        //string imagePath = "";
-        //if (upload3.HasFile)
-        //{
-        //    imagePath = @"../teacherImage/" + upload3.FileName;
-        //    upload3.SaveAs(Server.MapPath(@"../teacherImage/" + upload3.FileName));
-        //    Response.Write("<script>alert('修改成功')</script>");
-        //}
 
-        //Response.Write("<script>alert('修改成功')</script>");
         string userIP = GetClientIP();
         DateTime dt = DateTime.Now;
         string time = dt.ToString();
-        TA_轮播图片表TableAdapter Talunbo = new TA_轮播图片表TableAdapter();
-        //string imagePath = "";
+        TA_栏目图片表TableAdapter Talunbo = new TA_栏目图片表TableAdapter();
 
-        //imagePath = upload3.FileName;
-        //upload3.SaveAs(Server.MapPath(@"../teacherImage/" + upload3.FileName));
-
-        //Response.Write("<script>alert('修改成功')</script>");
 
 
         bool fileOK = false;
-        string path = Server.MapPath("../image/lunbo/");
+        string path = Server.MapPath("../image/catImage/");
         if (upload3.HasFile)
         {
             String fileExtension = System.IO.Path.GetExtension(upload3.FileName).ToLower();
@@ -201,8 +183,8 @@ public partial class CollegeManager_TeacherFamous : System.Web.UI.Page
             {
                 if (fileExtension == allowedExtensions[i])
                 {
-                    Talunbo.UpdateLunbo(upload3.FileName, time, userIP, txtUpload3.Text, "1511D4BB078D425ABF053CFCF4D094C2");
-                    // lunbo.UpdateLunbo("5656", time, userIP, txtUpload3.Text, "B0A69EABD16B3F5CB88BF65A0EC0303F");
+                    Talunbo.UpdateCatImage(upload3.FileName, time, userIP, hide3.Text, 3);
+
                     fileOK = true;
                 }
             }
@@ -212,8 +194,9 @@ public partial class CollegeManager_TeacherFamous : System.Web.UI.Page
             try
             {
                 upload3.SaveAs(path + upload3.FileName);
-                Response.Write("<script>alert('修改成功')</script>");
-
+                //Response.Write("<script>alert('修改成功')</script>");
+                ScriptManager.RegisterStartupScript(this, GetType(), "", "showTXT3(" + Talunbo.GetDataOrder().Rows[2]["图片链接"].ToString() + ");show(lunbo3,'" + "../image/catImage/" + Talunbo.GetDataOrder().Rows[2]["图片名称"].ToString() + "');", true);
+               // ScriptManager.RegisterStartupScript(this, GetType(), "", "showTXT3(txtUpload3.Text);", true);
             }
             catch (Exception ex)
             {
@@ -225,62 +208,7 @@ public partial class CollegeManager_TeacherFamous : System.Web.UI.Page
             Response.Write("<script>alert('只能上传.gif, .png, .bmp, .jpg 格式')</script>");
         }
     }
-    protected void btnUpload4_Click(object sender, EventArgs e)
-    {
-        //string imagePath = "";
-        //if (upload4.HasFile)
-        //{
-        //    imagePath = @"../teacherImage/" + upload4.FileName;
-        //    upload4.SaveAs(Server.MapPath(@"../teacherImage/" + upload4.FileName));
-        //    Response.Write("<script>alert('修改成功')</script>");
-        //}
-        
-        //Response.Write("<script>alert('修改成功')</script>");
-        string userIP = GetClientIP();
-        DateTime dt = DateTime.Now;
-        string time = dt.ToString();
-        TA_轮播图片表TableAdapter Talunbo = new TA_轮播图片表TableAdapter();
-        //string imagePath = "";
 
-        //imagePath = upload4.FileName;
-        //upload4.SaveAs(Server.MapPath(@"../teacherImage/" + upload4.FileName));
 
-        //Response.Write("<script>alert('修改成功')</script>");
-       
 
-        bool fileOK = false;
-        string path = Server.MapPath("../image/lunbo/");
-        if (upload4.HasFile)
-        {
-            String fileExtension = System.IO.Path.GetExtension(upload4.FileName).ToLower();
-            String[] allowedExtensions = { ".gif", ".png", ".bmp", ".jpg" };
-            for (int i = 0; i < allowedExtensions.Length; i++)
-            {
-                if (fileExtension == allowedExtensions[i])
-                {
-                    Talunbo.UpdateLunbo(upload4.FileName, time, userIP, txtUpload4.Text, "B0A69EABD16B4F5CB88BF65A0EC0403F");
-                   // lunbo.UpdateLunbo("5656", time, userIP, txtUpload4.Text, "B0A69EABD16B4F5CB88BF65A0EC0403F");
-                    fileOK = true;
-                }
-            }
-        }
-        if (fileOK)
-        {
-            try
-            {
-                upload4.SaveAs(path + upload4.FileName);
-                Response.Write("<script>alert('修改成功')</script>");
-               
-            }
-            catch (Exception ex)
-            {
-               Response.Write("<script>alert('修改失败')</script>");
-            }
-        }
-        else
-        {
-           Response.Write("<script>alert('只能上传.gif, .png, .bmp, .jpg 格式')</script>");
-        }
-    }
-    
 }

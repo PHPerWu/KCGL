@@ -129,7 +129,7 @@
                                 <td valign="bottom" height="30" align="center" style="line-height:25px;">
                                     <span class="style1">系统要求:1024*768分辩率,浏览器IE8.0以上,禁用所有弹出窗口拦截程序</span><br 
                                         class="style1">
-                                    <span class="style1">主管单位：湖北大学 招生就业办公室</span><br class="style1">
+                                    <span class="style1">主管单位：湖北大学 教务处</span><br class="style1">
                                 </td>
                             </tr>
                         </tbody>

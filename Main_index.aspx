@@ -109,7 +109,7 @@
                                                         <asp:Repeater ID="rptLunbo" runat="server" DataSourceID="odsLunbo">
 
                                                                      <ItemTemplate>
-                                                                        <div><a href="<%#Eval("图片链接") %>"><img alt="" src="image/<%#Eval("图片名称") %>" style="width: 230px;height:200px;"  /></a></div>
+                                                                        <div><a href="<%#Eval("图片链接") %>"><img alt="" src="image/lunbo/<%#Eval("图片名称") %>" style="width: 230px;height:200px;"  /></a></div>
                                                                      </ItemTemplate>
                                                         </asp:Repeater>
                                                             
@@ -254,7 +254,7 @@
                                                         <ItemTemplate>
                                                             <tr>
                                                                 <td width="100%" style="font-size: small">
-                                                                    <%-- <a href='KC/KCinfo.aspx?KCID=<%#Eval("课程代码")%>'> <%#Eval("课程名称")%>
+                                                                    <%-- <a href='<%# Eval("精品课程网址") %>'> <%#Eval("课程名称")%>
                                                         </a>--%><center>
                                                             <asp:LinkButton ID="LinkButton1" Width="100%" runat="server" BorderColor="#6B8E23"
                                                                 BorderWidth="1px" BackColor="#D9D9D9" CommandArgument='<%#Eval("课程代码")%>' ForeColor="#333333"
@@ -294,7 +294,7 @@
                                                                 
                                                                 <div align="center">
                                                             <table width="95%">
-                                                           <a href="<%#Eval("图片链接") %>"><img alt="" src="image/<%#Eval("图片名称") %>" style="width: 220px;height:192px;"  /></a>
+                                                           <a href="<%#Eval("图片链接") %>"><img alt="" src="image/catImage/<%#Eval("图片名称") %>" style="width: 220px;height:192px;"  /></a>
                                                        
                                                         
                                                             <tr>
@@ -327,7 +327,7 @@
                                                                 
                                                                 <div align="center">
                                                             <table width="95%">
-                                                           <a href="<%#Eval("图片链接") %>"><img alt="" src="image/<%#Eval("图片名称") %>" style="width: 220px;height:192px;"  /></a>
+                                                           <a href="<%#Eval("图片链接") %>"><img alt="" src="image/catImage/<%#Eval("图片名称") %>" style="width: 220px;height:192px;"  /></a>
                                                        
                                                         
                                                             <tr>
@@ -360,7 +360,7 @@
                                                                 
                                                                 <div align="center">
                                                             <table width="95%">
-                                                           <a href="<%#Eval("图片链接") %>"><img alt="" src="image/<%#Eval("图片名称") %>" style="width: 220px;height:192px;"  /></a>
+                                                           <a href="<%#Eval("图片链接") %>"><img alt="" src="image/catImage/<%#Eval("图片名称") %>" style="width: 220px;height:192px;"  /></a>
                                                        
                                                         
                                                             <tr>

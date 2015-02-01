@@ -103,8 +103,9 @@
                     &nbsp;</td>
                 <td class="style2">
                     <b>MOOC</b>
-                     <br /> <br /><dx:ASPxImage ID="lunbo1" runat="server" ShowLoadingImage="true">
-        </dx:ASPxImage>
+                     <br /> <br /><dx:ASPxImage ID="lunbo1" runat="server" ShowLoadingImage="true" 
+                        Height="192px" Width="220px">
+        </dx:ASPxImage><br /><a style="color:Red">请将图片裁剪成200*230 px上传</a>
                     <br /> <br />
                     <asp:FileUpload ID="upload1" runat="server" />
                     <br /> <br />
@@ -122,8 +123,9 @@
                 <td>
                     &nbsp;</td>
                 <td>
-                    &nbsp; <b>视频公开课</b> <br /> <br /><dx:ASPxImage ID="lunbo2" runat="server" ShowLoadingImage="true">
-                    </dx:ASPxImage>
+                    &nbsp; <b>视频公开课</b> <br /> <br /><dx:ASPxImage ID="lunbo2" runat="server" 
+                        ShowLoadingImage="true" Height="192px" Width="220px">
+                    </dx:ASPxImage><br /><a style="color:Red">请将图片裁剪成200*230 px上传</a>
                     <br /> <br />
                     <asp:FileUpload ID="upload2" runat="server" />
                     <br /> <br />
@@ -164,8 +166,9 @@
                 <td class="style4">
                     &nbsp;</td>
                 <td class="style2">
-                    <b>资源共享课</b> <br /> <br /><dx:ASPxImage ID="lunbo3" runat="server" ShowLoadingImage="true">
-                    </dx:ASPxImage>
+                    <b>资源共享课</b> <br /> <br /><dx:ASPxImage ID="lunbo3" runat="server" 
+                        ShowLoadingImage="true" Height="192px" Width="220px">
+                    </dx:ASPxImage><br /><a style="color:Red">请将图片裁剪成200*230 px上传</a>
                     <br /> <br />
                     <asp:FileUpload ID="upload3" runat="server" />
                     <br /> <br />

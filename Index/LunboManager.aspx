@@ -106,8 +106,9 @@
                     &nbsp;</td>
                 <td class="style2">
     <b>一号图</b><br /><br />
-        <dx:ASPxImage ID="lunbo1" runat="server" ShowLoadingImage="true">
-        </dx:ASPxImage>
+        <dx:ASPxImage ID="lunbo1" runat="server" ShowLoadingImage="true" Height="200px" 
+                        Width="230px">
+        </dx:ASPxImage><br /><a style="color:Red">请将图片裁剪成200*230 px上传</a>
                     <br />
                     <br />
                     <asp:FileUpload ID="upload1" runat="server" />
@@ -124,8 +125,9 @@
                     &nbsp;</td>
                 <td class="style3">
                 <b>二号图</b><br /><br />
-                    <dx:ASPxImage ID="lunbo2" runat="server" ShowLoadingImage="true">
-                    </dx:ASPxImage>
+                    <dx:ASPxImage ID="lunbo2" runat="server" ShowLoadingImage="true" Height="200px" 
+                        Width="230px">
+                    </dx:ASPxImage><br /><a style="color:Red">请将图片裁剪成200*230 px上传</a>
                     <br />
                     <br />
                     <asp:FileUpload ID="upload2" runat="server" />
@@ -176,8 +178,9 @@
                     &nbsp;</td>
                 <td class="style2">
                 <b>三号图</b><br /><br />
-                    <dx:ASPxImage ID="lunbo3" runat="server" ShowLoadingImage="true">
-                    </dx:ASPxImage>
+                    <dx:ASPxImage ID="lunbo3" runat="server" ShowLoadingImage="true" Height="200px" 
+                        Width="230px">
+                    </dx:ASPxImage><br /><a style="color:Red">请将图片裁剪成200*230 px上传</a>
                     <br />
                     <br />
                     <asp:FileUpload ID="upload3" runat="server" />
@@ -194,8 +197,9 @@
                     &nbsp;</td>
                 <td class="style3">
                 <b>四号图</b><br /><br />
-                    <dx:ASPxImage ID="lunbo4" runat="server" ShowLoadingImage="true">
-                    </dx:ASPxImage>
+                    <dx:ASPxImage ID="lunbo4" runat="server" ShowLoadingImage="true" Height="200px" 
+                        Width="230px">
+                    </dx:ASPxImage><br /><a style="color:Red">请将图片裁剪成200*230 px上传</a>
                     <br />
                     <br />
                     <asp:FileUpload ID="upload4" runat="server" />

@@ -88,13 +88,34 @@
                 </div>
                 <div >
                     <ul class="topnav">
-                        <li style="font-size: 13px;"><a href="../Main_index.aspx">首页</a></li>
+                    <asp:Repeater ID="repNav" runat="server" DataSourceID="odsNav">
+                            <ItemTemplate>
+                                <li style="font-size: 13px;"><a href="<%#Eval("栏目链接") %>"><%#Eval("栏目名称") %></a></li>
+                            </ItemTemplate>
+                        </asp:Repeater><asp:ObjectDataSource ID="odsNav" runat="server" InsertMethod="Insert" 
+                        OldValuesParameterFormatString="original_{0}" SelectMethod="GetDataByID" 
+                        TypeName="ImageTableAdapters.TA_导航表TableAdapter">
+                        <InsertParameters>
+                            <asp:Parameter Name="栏目ID" Type="Decimal" />
+                            <asp:Parameter Name="栏目名称" Type="String" />
+                            <asp:Parameter Name="栏目链接" Type="String" />
+                            <asp:Parameter Name="添加人" Type="String" />
+                            <asp:Parameter Name="添加人IP" Type="String" />
+                            <asp:Parameter Name="添加时间" Type="String" />
+                            <asp:Parameter Name="备用1" Type="String" />
+                            <asp:Parameter Name="备用2" Type="String" />
+                            <asp:Parameter Name="备用3" Type="String" />
+                            <asp:Parameter Name="备用4" Type="String" />
+                            <asp:Parameter Name="备用5" Type="String" />
+                        </InsertParameters>
+                    </asp:ObjectDataSource>
+<%--                        <li style="font-size: 13px;"><a href="../Main_index.aspx">首页</a></li>
                         <li style="font-size: 13px;"><a href="KCfaculty.aspx">课程总览</a></li>
                         <li style="font-size: 13px;"><a href="http://x.hubu.edu.cn">MOOC</a></li>
                         <li style="font-size: 13px;"><a href="SPGKCourse.aspx">视频公开课</a></li>
                         <li style="font-size: 13px;"><a href="ZYGXCourse.aspx">资源共享课</a></li>
                         <li style="font-size: 13px;"><a href="JPKCCourse.aspx">精品课程</a></li>
-                        <li style="font-size: 13px;"><a href="XWYZCourse.aspx">校外优质课程</a></li>
+                        <li style="font-size: 13px;"><a href="XWYZCourse.aspx">校外优质课程</a></li>--%>
                     </ul>
                     <%--2013.22.29加上访问量—任俊伟--%>
                     <div class="visit">

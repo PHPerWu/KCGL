@@ -1,28 +1,13 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="Login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default2.aspx.cs" Inherits="Default2" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <style type="text/css">
-        .style1
-        {
-            width: 132px;
-        }
-        .b
-        {
-           
-            margin:auto;
-            margin-top:100px;
-            }
-        #bg
-        {
-            background-image:image/kk.png;
-            }
-    </style>
 </head>
-<body style="background-image: url(image/bg_3.gif)">
+
+<body style="background-image: url(./Content/Images/bg_3.gif)">
     <form id="Form1" runat="server">
     <table width="100%" height="100%" cellspacing="0" cellpadding="0" bordercolor="#bed1eb"
         border="0" style="border-collapse: collapse">
@@ -32,7 +17,7 @@
                     <table width="555" height="312" style=" margin-top:12%;" cellspacing="0" cellpadding="0" border="0">
                         <tbody valign="middle">
                             <tr>
-                                <td valign="middle" height="312" background="image/kk.png" align="center">
+                                <td valign="middle" height="312" background="./Content/Images/kk.jpg" align="center">
                                     <table width="280" cellspacing="0" cellpadding="0" border="0" class="notice-text">
                                         <tbody>
                                           
@@ -60,7 +45,7 @@
                                                                                     登陆账号&nbsp; 
                                                                                 </td>
                                                                                 <td height="30" align="left">
-                                                                                    <asp:TextBox ID="UserName" runat="server" Font-Size="1em" Width="150px"></asp:TextBox>
+                                                                                    <asp:TextBox ID="UserName" runat="server" Font-Size="0.8em" Width="150px"></asp:TextBox>
                                                                                     <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" 
                                                                                         ControlToValidate="UserName" ErrorMessage="必须填写“用户名”。" ForeColor="Red" 
                                                                                         ToolTip="必须填写“用户名”。" ValidationGroup="Login1">*请输入</asp:RequiredFieldValidator>
@@ -70,7 +55,7 @@
                                                                                 <td align="right" height="30">
                                                                                     密&nbsp;码 &nbsp; </td>
                                                                                 <td height="30" align="left">
-                                                                                    <asp:TextBox ID="Password" runat="server" Font-Size="1em" TextMode="Password" 
+                                                                                    <asp:TextBox ID="Password" runat="server" Font-Size="0.8em" TextMode="Password" 
                                                                                         Width="150px"></asp:TextBox>
                                                                                     <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password"
                                                                                         ErrorMessage="必须填写“密码”。" ToolTip="必须填写“密码”。" ValidationGroup="Login1"  ForeColor="Red">*请输入</asp:RequiredFieldValidator>
@@ -100,17 +85,6 @@
                                                                         </table>
                                                                     </td>
                                                                 </tr>
-                                                                  <tr>
-                                                                                                        <td>
-                                                                                                            <a href="http://jwxt.hubu.edu.cn/" target="_blank"><asp:Image ID="imgbtn_jwxt" runat="server" ImageUrl="~/image/教务系统.jpg" Width="105px" Height="26px" /></a>
-                                                                                                           <%-- <asp:ImageButton ID="imgbtn_jwxt" runat="server" ImageUrl="~/image/教务系统.jpg" PostBackUrl="http://jwc.hubu.edu.cn/"
-                                                                                                                 />--%>
-                                                                                                      
-                                                                                                         <a href="http://jwxt.hubu.edu.cn/tkglAction.do?method=wztzkb&fs=?&selectUrl=" target="_blank"><asp:Image ID="Image1" runat="server" ImageUrl="~/image/课表查询.jpg" Width="105px" Height="26px" /></a>
-                                                                                                            <%--<asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/image/课表查询.jpg" PostBackUrl="http://jwc.hubu.edu.cn/"
-                                                                                                                Width="105px" Height="26px" />--%>
-                                                                                                        </td>
-                                                                                                    </tr>
                                                             </table>
                                                         </LayoutTemplate>
                                                         <LoginButtonStyle BackColor="White"  BorderColor="#507CD1" BorderStyle="Solid" BorderWidth="1px"
@@ -120,7 +94,6 @@
                                                     </asp:Login>
                                                 </td>
                                             </tr>
-
                                         </tbody>
                                     </table>
                                 </td>

@@ -100,17 +100,7 @@
                                                                         </table>
                                                                     </td>
                                                                 </tr>
-                                                                  <tr>
-                                                                                                        <td>
-                                                                                                            <a href="http://jwxt.hubu.edu.cn/" target="_blank"><asp:Image ID="imgbtn_jwxt" runat="server" ImageUrl="~/image/教务系统.jpg" Width="105px" Height="26px" /></a>
-                                                                                                           <%-- <asp:ImageButton ID="imgbtn_jwxt" runat="server" ImageUrl="~/image/教务系统.jpg" PostBackUrl="http://jwc.hubu.edu.cn/"
-                                                                                                                 />--%>
-                                                                                                      
-                                                                                                         <a href="http://jwxt.hubu.edu.cn/tkglAction.do?method=wztzkb&fs=?&selectUrl=" target="_blank"><asp:Image ID="Image1" runat="server" ImageUrl="~/image/课表查询.jpg" Width="105px" Height="26px" /></a>
-                                                                                                            <%--<asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/image/课表查询.jpg" PostBackUrl="http://jwc.hubu.edu.cn/"
-                                                                                                                Width="105px" Height="26px" />--%>
-                                                                                                        </td>
-                                                                                                    </tr>
+                                                               
                                                             </table>
                                                         </LayoutTemplate>
                                                         <LoginButtonStyle BackColor="White"  BorderColor="#507CD1" BorderStyle="Solid" BorderWidth="1px"

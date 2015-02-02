@@ -33,6 +33,33 @@
 
         });
     </script>
+    <script>
+        //添加热搜推荐
+        $(document).ready(function () {
+            
+            var xmlhttp;
+
+            if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            }
+            else {// code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    // document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+                    //alert(xmlhttp.responseText);
+                    $("#ctl00_txtSearch_I").attr("placeholder", xmlhttp.responseText);
+                    document.getElementById("hide").value = xmlhttp.responseText;
+                }
+            }
+            xmlhttp.open("GET", "placeholder.aspx", true);
+            xmlhttp.send();
+        });
+
+    </script>
+
+
     <style type="text/css">
         .style1
         {
@@ -42,7 +69,13 @@
         {
             width: 99px;
         }
+        .hover_red:hover
+        {
+            color:Red;
+            }
+       
     </style>
+
         <asp:ContentPlaceHolder id="head" runat="server">
 
     </asp:ContentPlaceHolder>
@@ -50,6 +83,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
+    
     <div>
             <div class="returntop">
             <img alt="回顶部" id="img1" src="image/returntop1.jpg" />
@@ -59,6 +93,8 @@
                 <div id="header">
                 <div class="headFunc">
                     <div class="function">
+                    <a class="hover_red"   href="http://jwxt.hubu.edu.cn/">教务系统</a>&nbsp;&nbsp;|&nbsp; 
+                 <a class="hover_red"  href="http://jwxt.hubu.edu.cn/tkglAction.do?method=wztzkb&fs=?&selectUrl=" target="_blank">课表查询</a>&nbsp;&nbsp;|&nbsp; 
                         <a href="#" onclick="this.style.behavior='url(#default#homepage)'; this.setHomePage(document.location.href);event.returnValue=false;">
                             设为首页</a>&nbsp;&nbsp;|&nbsp; <a href="Javascript:window.external.addFavorite(document.location.href,document.title)">
                                 加入收藏</a>
@@ -67,14 +103,18 @@
                     <table>
                     <tr>
                     <td><dx:ASPxTextBox ID="txtSearch" runat="server" Width="150px"  
-                             class="txtSearch" Height="17px" NullText="请输入课程名称" 
+                             class="txtSearch" Height="17px"
                             Theme="Office2003Olive">
                             <NullTextStyle ForeColor="#999999">
                             </NullTextStyle>
-                        </dx:ASPxTextBox></td>
+                        </dx:ASPxTextBox>
+                        
+                        
+                        </td>
                     <td><asp:Button ID="btnSearch" runat="server" Text="搜索" class="btnSearch" BackColor="#598F30"
                             BorderStyle="None" ForeColor="White" Width="40px" Height="20px" 
-                            onclick="btnSearch_Click" /></td>
+                            onclick="btnSearch_Click" />
+                            </td>
                     </tr>
                     </table>
                         
@@ -141,7 +181,9 @@
                 &nbsp;</div>
             <div style="background-color: #6B8E23; height: 5px">
                 &nbsp;</div>
+                                                                      
             <center style="font-size: 12px">
+
                 <a style="color:Black"href="Login.aspx">
                                 管理登录</a></center>
         </div>

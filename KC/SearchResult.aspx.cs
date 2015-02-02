@@ -22,6 +22,7 @@ public partial class KC_SearchResult : System.Web.UI.Page
         //{
             //获取传过来的keyWords值，得到搜素的结果列表
             string keyWords = Request.QueryString["keyWords"].ToString();
+           
             //VI_KCINFOTableAdapter ada = new VI_KCINFOTableAdapter();
             TA_课程信息表TableAdapter ada = new TA_课程信息表TableAdapter();
             DataTable dt = ada.GetDataByAllWebsiteSearch("%" + keyWords + "%", "%" + keyWords + "%", "%" + keyWords + "%");

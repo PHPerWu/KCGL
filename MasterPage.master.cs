@@ -23,6 +23,14 @@ public partial class KC_MasterPage : System.Web.UI.MasterPage
     }
     protected void btnSearch_Click(object sender, EventArgs e)
     {
+        if (txtSearch.Text == "")
+        {
+            TA_课程信息表TableAdapter ta = new TA_课程信息表TableAdapter();
+            string str = ta.GetDataHotKC().Rows[0]["课程名称"].ToString();
+            txtSearch.Text = str;
+           
+        }
+        
         Response.Redirect("~/KC/SearchResult.aspx?keyWords=" + txtSearch.Text);
     }
 
